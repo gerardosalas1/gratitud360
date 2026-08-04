@@ -580,13 +580,14 @@ let memStore={};
 function sget(k){ try{return localStorage.getItem(k)}catch(e){return memStore[k]||null} }
 function sset(k,v){ try{localStorage.setItem(k,v)}catch(e){memStore[k]=v} }
 function defCfg(){ return {nombre:"",apodo:"",tel:"",pin:"",mail:"",nac:"",civil:"",conyN:"",conyNac:"",hijos:[],redesL:{},hobbiesL:[],deporte:"",sueno:"",algomas:"",
-  n1:22000,n2:28000,n3:40000,prima:50000,ubic:100,bateo:10,quien:"",fin1:"",fin2:"",fin3:"",arq:"",enf:[],links:{},metasOk:false,
+  n1:22000,n2:28000,n3:40000,prima:50000,ubic:100,bateo:10,quien:"",fin1:"",fin2:"",fin3:"",arq:"",enf:[],
+  links:{agenda:"https://calendar.google.com/calendar/appointments/schedules/AcZssZ0rWMTUtoVbN1EZiWtAUL_P-uoA2UK7_GXEUa1_XcF-n4nQA0s5bEeIR3YnYc8O3JUy-69pFeyN"},metasOk:false,
   blocks:[{h:"08:00",t:"Revisar mi hoja de prospectos y AGENDAR citas",fix:1},
           {h:"11:30",t:"Prospección — contactos nuevos del día",fix:1},
           {h:"17:00",t:"Seguimiento — nadie se queda sin siguiente paso",fix:1},
           {h:"19:30",t:"🌙 Revisión del día y planeación de mañana",fix:1}]} }
 let DB={log:[],ventas:[],cfg:defCfg(),comp:{},pros:[],plan:{},tareas:[]};
-try{ const raw=sget('g360'); if(raw){ const P=JSON.parse(raw); DB={...{log:[],ventas:[],cfg:defCfg(),comp:{},pros:[],plan:{},tareas:[]},...P,cfg:{...defCfg(),...(P.cfg||{})},comp:P.comp||{},pros:P.pros||[],plan:P.plan||{},tareas:P.tareas||[]}; } }catch(e){}
+try{ const raw=sget('g360'); if(raw){ const P=JSON.parse(raw); DB={...{log:[],ventas:[],cfg:defCfg(),comp:{},pros:[],plan:{},tareas:[]},...P,cfg:{...defCfg(),...(P.cfg||{}),links:{...defCfg().links,...((P.cfg||{}).links||{})}},comp:P.comp||{},pros:P.pros||[],plan:P.plan||{},tareas:P.tareas||[]}; } }catch(e){}
 if(!DB.cfg.blocks||DB.cfg.blocks.length<4||!DB.cfg.blocks[0].fix) DB.cfg.blocks=defCfg().blocks;
 function persist(){ sset('g360',JSON.stringify(DB));
   // sincronización viva: a los 8s de cualquier cambio, semana, pipeline, prospectos y respaldo se suben solos a la base
