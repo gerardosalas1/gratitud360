@@ -954,11 +954,21 @@ function importarContactos(){
       alert("📱 "+n+" contacto(s) importado(s) a tu hoja.\n\nAhora viene lo importante: califícalos con estrellas y decide a quién citar.");
     }).catch(()=>{});
   } else {
-    const ios=/iPhone|iPad/i.test(navigator.userAgent);
-    const pasos = ios?
-      '<b>En iPhone</b>, el camino que SÍ funciona hoy:<br><br>1️⃣ Abre <b>Contactos</b> → deja presionado un contacto → <b>Compartir contacto</b> → <b>Guardar en Archivos</b> (se guarda como .vcf). Repite con tus mejores contactos, o para TODOS: entra a <b>icloud.com</b> → Contactos → selecciónalos → ⚙️ → <b>Exportar vCard</b>.<br><br>2️⃣ Vuelve aquí y toca <b>📄 Archivo</b> para subir ese .vcf.' :
-      '<b>En Android</b>, el camino que SÍ funciona hoy:<br><br>1️⃣ Abre tu app de <b>Contactos</b> → menú <b>⋮</b> → <b>Exportar</b> (o "Administrar contactos → Exportar") → se crea un archivo <b>.vcf con TODOS tus contactos</b>.<br><br>2️⃣ Vuelve aquí y toca <b>📄 Archivo</b> para subirlo — entran todos de un jalón.';
-    msgBox('📱 Tu teléfono bloquea la selección directa de contactos en apps abiertas como archivo (funcionará directo cuando publiquemos la app en línea).<br><br>'+pasos+'<br><br><span style="color:var(--mut);font-size:11px">Y siempre tienes 📋 Pegar mi lista: copia nombres de donde sea y pégalos.</span>',
+    const ua=navigator.userAgent;
+    const ios=/iPhone|iPad/i.test(ua);
+    const enApp=/WhatsApp|FBAN|FBAV|FB_IAB|Instagram|Line\//i.test(ua); // navegador interno de WhatsApp/Facebook/Instagram
+    let titulo, pasos;
+    if(!ios && enApp){
+      titulo='📱 Estás dentro del navegador de WhatsApp — ahí los contactos están bloqueados. <b>Sal a Chrome y SÍ funciona directo:</b>';
+      pasos='1️⃣ Toca el menú <b>⋮</b> (arriba a la derecha) → <b>"Abrir en Chrome"</b>.<br>2️⃣ Ya en Chrome, toca de nuevo <b>📞 Contactos del teléfono</b> — se abre tu lista y eliges a quién traer.<br><br>💡 Y de una vez: en Chrome, menú ⋮ → <b>"Agregar a pantalla de inicio"</b> — así la app queda con su ícono y siempre abre con todo su poder.';
+    } else if(ios){
+      titulo='📱 En iPhone, Apple no permite que ninguna app web abra tus contactos directo — no es falla de la app. <b>El camino que SÍ funciona (2 minutos):</b>';
+      pasos='1️⃣ Abre <b>Contactos</b> → deja presionado un contacto → <b>Compartir contacto</b> → <b>Guardar en Archivos</b> (queda como .vcf). Repite con tus mejores contactos.<br>Para traer TODOS de un jalón: en tu compu entra a <b>icloud.com</b> → Contactos → selecciónalos → ⚙️ → <b>Exportar vCard</b> y mándate el archivo.<br><br>2️⃣ Vuelve aquí y toca <b>📄 Archivo</b> para subir ese .vcf — entran con nombre y teléfono.';
+    } else {
+      titulo='📱 Tu navegador no deja abrir los contactos directo. <b>Dos caminos que SÍ funcionan:</b>';
+      pasos='1️⃣ Abre esta misma liga en <b>Chrome</b> (ahí el botón sí abre tu lista de contactos), o<br>2️⃣ En tu app de <b>Contactos</b> → menú <b>⋮</b> → <b>Exportar</b> → se crea un archivo .vcf con todos → vuelve aquí y súbelo con <b>📄 Archivo</b>.';
+    }
+    msgBox(titulo+'<br><br>'+pasos+'<br><br><span style="color:var(--mut);font-size:11px">Y siempre tienes 📋 Pegar mi lista: copia nombres de donde sea (WhatsApp, notas, Excel) y pégalos.</span>',
       [["📄 Subir mi archivo de contactos",()=>document.getElementById('fileimp').click()],["Entendido",null]]);
   }
 }
