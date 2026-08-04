@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1B2A4A">
+<title>GRATITUD 360 · Mi Proceso</title>
+<style>
+:root{
+  --navy:#1B2A4A; --navy2:#223458; --navy3:#2A3F6B; --line:#3A4F80;
+  --gold:#C9A84C; --goldl:#E3CE8F; --ice:#C7D3E8; --mut:#8FA0BF;
+  --white:#FFFFFF; --green:#4CAF7D; --amber:#E8B93E; --red:#E06060;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--navy);color:var(--white);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:84px}
+header{padding:18px 18px 10px;position:relative}
+.backfab{position:absolute;top:16px;right:14px;background:var(--navy3);border:1px solid var(--line);border-radius:99px;color:var(--ice);font-size:12px;font-weight:700;padding:7px 13px;cursor:pointer;display:none}
+.ftabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:6px;-webkit-overflow-scrolling:touch}
+.fchip{white-space:nowrap;background:var(--navy3);border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:11px;font-weight:700;color:var(--ice);cursor:pointer}
+.fchip.on{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+textarea{width:100%;background:var(--navy3);border:1px solid var(--line);border-radius:10px;color:var(--white);padding:11px;font-size:14px;margin-top:6px;font-family:inherit}
+.segitem{font-size:12px;color:var(--ice);border-left:2px solid var(--line);padding:4px 8px;margin-top:6px}
+.msgover{position:fixed;inset:0;background:rgba(10,16,30,.85);display:flex;align-items:center;justify-content:center;z-index:300;padding:20px}
+.msgbox{background:var(--navy2);border:1px solid var(--gold);border-radius:16px;padding:18px;max-width:440px;width:100%;max-height:80vh;overflow-y:auto}
+.msgbox .mtxt{font-size:14px;line-height:1.55;color:var(--white);white-space:pre-wrap}
+.msgbox .mbtns{display:flex;gap:10px;margin-top:16px}
+.msgbox .mbtns button{flex:1;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:800;cursor:pointer}
+.msgbox .mbtns .primary{background:var(--gold);color:var(--navy)}
+.msgbox .mbtns .sec{background:var(--navy3);color:var(--white);border:1px solid var(--line)}
+header .brand{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700}
+header h1{font-size:22px;font-weight:800;margin-top:2px}
+header .sub{font-size:12px;color:var(--mut);margin-top:2px}
+.tabs{position:fixed;bottom:0;left:0;right:0;max-width:520px;margin:0 auto;display:flex;background:var(--navy2);border-top:1px solid var(--line);z-index:50}
+.tabs button{flex:1;background:none;border:none;color:var(--mut);font-size:9px;font-weight:700;padding:9px 1px max(9px, env(safe-area-inset-bottom));cursor:pointer}
+.pcard{background:var(--navy3);border:1px solid var(--line);border-radius:12px;padding:11px;margin-top:10px}
+.pcard.hot{border-color:var(--gold)}
+.pcard .pname{font-weight:800;font-size:14px}
+.pcard .pnote{font-size:11px;color:var(--mut);margin-top:1px}
+.stars{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.star{border:1px solid var(--line);border-radius:8px;padding:5px 7px;font-size:10.5px;color:var(--ice);cursor:pointer;user-select:none}
+.star.on{background:var(--gold);color:var(--navy);font-weight:800;border-color:var(--gold)}
+.reco{font-size:11.5px;margin-top:8px;color:var(--goldl);font-weight:700}
+.pacts{display:flex;gap:6px;margin-top:9px}
+.pacts button{flex:1;background:var(--navy2);border:1px solid var(--line);border-radius:8px;color:var(--white);font-size:10.5px;font-weight:700;padding:8px 2px;cursor:pointer}
+.pacts button.gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.prow{display:flex;align-items:center;gap:8px;padding:11px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.prow:last-child{border-bottom:none}
+.prow .pn{flex:1;font-weight:700;font-size:13.5px}
+.prow .pn .sub{display:block;font-weight:400;font-size:10.5px;color:var(--mut)}
+.prow .st{font-size:12px;letter-spacing:1px}
+.prow .est{font-size:10px;font-weight:800;padding:3px 7px;border-radius:6px;background:var(--navy3);color:var(--ice);white-space:nowrap}
+.prow .est.g{background:rgba(76,175,125,.18);color:var(--green)}
+.prow .est.a{background:rgba(232,185,62,.18);color:var(--amber)}
+.prow .chev{color:var(--mut)}
+.nxtb{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 9px;font-size:10.5px;font-weight:800;white-space:nowrap;cursor:pointer;flex-shrink:0}
+.etsteps{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 2px}
+.etch{background:var(--navy3);border:1px solid var(--line);border-radius:99px;padding:6px 10px;font-size:10.5px;font-weight:700;color:var(--ice);cursor:pointer;white-space:nowrap}
+.etch.on{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.perfil{background:var(--navy2);border:1px dashed var(--line);border-radius:10px;padding:9px;margin-top:8px}
+.perfil label{margin-top:6px;font-size:10px}
+.perfil select,.perfil input{padding:8px;font-size:13px;margin-top:3px}
+.psug{font-size:11.5px;margin-top:8px;color:var(--ice);background:var(--navy2);border-left:3px solid var(--gold);border-radius:6px;padding:8px 9px;line-height:1.45}
+.tabs button .ic{display:block;font-size:19px;margin-bottom:2px}
+.tabs button.active{color:var(--gold)}
+.page{display:none;padding:0 14px}
+.page.active{display:block}
+.card{background:var(--navy2);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.card h2{font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:800;margin-bottom:10px;text-transform:uppercase}
+.big{font-size:30px;font-weight:800}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.stat{background:var(--navy3);border-radius:10px;padding:10px;text-align:center}
+.stat .v{font-size:20px;font-weight:800}
+.stat .l{font-size:10px;color:var(--mut);margin-top:2px;line-height:1.25}
+.btnrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px}
+.abtn{background:var(--navy3);border:1px solid var(--line);border-radius:12px;color:var(--white);padding:12px 4px;text-align:center;font-weight:700;font-size:12px;cursor:pointer;user-select:none}
+.abtn:active{background:var(--line)}
+.abtn .plus{display:block;font-size:20px;color:var(--gold);font-weight:800}
+.sellbtn{width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:800;margin-top:10px;cursor:pointer}
+.bar{background:var(--navy3);border-radius:99px;height:10px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:99px;transition:width .4s}
+.bar.green i{background:var(--green)}
+.rowline{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-top:8px}
+.rowline .k{color:var(--ice)}
+.rowline .v{font-weight:800}
+.gold{color:var(--gold)} .green{color:var(--green)} .red{color:var(--red)} .amber{color:var(--amber)}
+.mut{color:var(--mut)} .small{font-size:11px}
+.aviso{border-left:3px solid var(--gold);background:var(--navy3);border-radius:8px;padding:9px 10px;font-size:12.5px;margin-bottom:8px;line-height:1.4}
+.aviso.warn{border-left-color:var(--amber)}
+.aviso.alert{border-left-color:var(--red)}
+.aviso.win{border-left-color:var(--green)}
+.sem{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:800}
+.sem.g{background:rgba(76,175,125,.18);color:var(--green)}
+.sem.a{background:rgba(232,185,62,.18);color:var(--amber)}
+.sem.r{background:rgba(224,96,96,.18);color:var(--red)}
+.weekgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:8px}
+.wk{background:var(--navy3);border-radius:8px;padding:7px 2px;text-align:center;font-size:10px;color:var(--mut)}
+.wk .d{font-size:13px;font-weight:800;color:var(--white)}
+.wk.cur{outline:2px solid var(--gold)}
+.agsem{display:flex;gap:5px;align-items:center;margin-bottom:10px}
+.agsem .nav{background:var(--navy3);border:1px solid var(--line);border-radius:8px;color:var(--ice);font-size:16px;padding:6px 10px;cursor:pointer}
+.dia{flex:1;background:var(--navy3);border:1px solid var(--line);border-radius:10px;padding:6px 2px;text-align:center;cursor:pointer}
+.dia .dl{font-size:9px;color:var(--mut);font-weight:700}
+.dia .dn{font-size:15px;font-weight:800}
+.dia .dd{font-size:8px;height:10px;letter-spacing:1px}
+.dia.on{background:var(--gold);border-color:var(--gold)}
+.dia.on .dl,.dia.on .dn{color:var(--navy)}
+.dia.hoy0{outline:2px solid var(--goldl)}
+.semlab{text-align:center;font-size:11px;color:var(--mut);margin-bottom:6px}
+input,select{width:100%;background:var(--navy3);border:1px solid var(--line);border-radius:10px;color:var(--white);padding:11px;font-size:15px;margin-top:6px}
+label{font-size:11px;color:var(--mut);font-weight:700;display:block;margin-top:10px}
+.modal{position:fixed;inset:0;background:rgba(10,16,30,.82);display:none;align-items:flex-end;justify-content:center;z-index:100}
+.modal.open{display:flex}
+.sheet{background:var(--navy2);border-radius:18px 18px 0 0;padding:18px;width:100%;max-width:520px;border-top:2px solid var(--gold);max-height:88vh;overflow-y:auto}
+.diagitem{display:flex;gap:10px;align-items:flex-start;background:var(--navy3);border:1px solid var(--line);border-radius:10px;padding:10px;margin-top:8px;cursor:pointer}
+.diagitem.on{border-color:var(--gold);background:#33487a}
+.diagitem .chk{font-size:16px;min-width:20px}
+.diagitem .tt{font-weight:800;font-size:12.5px}
+.diagitem .dd{font-size:11.5px;color:var(--ice);margin-top:2px;font-style:italic}
+.matitem{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+.matitem:last-child{border-bottom:none}
+.matitem a{color:var(--gold);font-weight:800;text-decoration:none}
+.matitem .off{color:var(--mut);font-size:11px}
+.sheet h3{font-size:16px;margin-bottom:4px}
+.factorbox{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--navy3),#33487a);border:1px solid var(--gold);border-radius:14px;padding:14px;margin-bottom:12px}
+.factorbox .fx{font-size:34px;font-weight:800;color:var(--gold)}
+.nivel{display:flex;align-items:center;gap:10px;margin-top:10px}
+.nivel .tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:6px;background:var(--navy3);color:var(--ice);white-space:nowrap;min-width:74px;text-align:center}
+.nivel .bar{flex:1;margin-top:0}
+.nivel .pct{font-size:11px;font-weight:800;min-width:38px;text-align:right}
+.undo{background:none;border:none;color:var(--mut);font-size:11px;text-decoration:underline;cursor:pointer;margin-top:8px}
+.decl{font-size:13.5px;line-height:1.55;color:var(--ice);font-style:italic;background:var(--navy3);border-radius:10px;padding:12px;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{background:var(--navy3);border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:12px;cursor:pointer}
+.chip.on{background:var(--gold);color:var(--navy);font-weight:800;border-color:var(--gold)}
+h4.sec{font-size:12px;color:var(--ice);margin:14px 0 4px;font-weight:800}
+.footer-note{font-size:10px;color:var(--mut);text-align:center;padding:10px 20px 4px;line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+  <button class="backfab" id="backbtn" onclick="goBack()">‹ regresar</button>
+  <div class="brand">SEGURZEN · GRATITUD 360</div>
+  <h1 id="saludo">Mi Proceso</h1>
+  <div class="sub" id="fecha"></div>
+</header>
+
+<!-- ============ HOY ============ -->
+<div class="page active" id="pg-hoy">
+  <div class="card" id="arranque-card" style="border-color:var(--gold)">
+    <h2>🚀 Mi arranque · lo esencial primero</h2>
+    <div class="small mut" style="margin-bottom:4px">Toca cada paso para ir a completarlo. Cuando los 5 estén en ✅, esta tarjeta se retira sola.</div>
+    <div id="arranquelist"></div>
+  </div>
+  <div class="card" id="plan3card" style="display:none;border-color:var(--gold)">
+    <h2>🎯 Mis 3 de hoy · las definí anoche</h2>
+    <div id="plan3list"></div>
+  </div>
+  <div class="card">
+    <h2>Mi actividad de hoy · las predictivas mandan</h2>
+    <div class="btnrow">
+      <div class="abtn" onclick="add('prospecto')"><span class="plus">+</span>Prospecto<div class="small mut" id="c-prospecto">0 hoy</div></div>
+      <div class="abtn" onclick="add('citaP')"><span class="plus">+</span>Cita propuesta<div class="small mut" id="c-citaP">0 hoy</div></div>
+      <div class="abtn" onclick="add('citaR')"><span class="plus">+</span>Cita realizada<div class="small mut" id="c-citaR">0 hoy</div></div>
+    </div>
+    <button class="sellbtn" onclick="openVenta()">🏆 Registrar una VENTA</button>
+    <button class="undo" onclick="undo()">deshacer último registro</button>
+  </div>
+  <div class="card">
+    <h2>⏰ Mi agenda · semana y día <button class="undo" style="float:right;margin-top:0" onclick="openAgenda()">⚙️ ajustar</button></h2>
+    <div id="agweek"></div>
+    <div id="agendalist"></div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="abtn" style="flex:1" onclick="tareaEnDia()">➕ Tarea este día</button>
+      <button class="abtn" style="flex:1" id="notifbtn" onclick="enableNotif()">🔔 Recordatorios</button>
+    </div>
+    <button class="sellbtn" onclick="openCierre()">🌙 Cerrar mi día y planear mañana</button>
+  </div>
+  <div class="card">
+    <h2>Mi semana en un vistazo</h2>
+    <div class="rowline"><span class="k">Semáforo</span><span id="semaforo" class="sem r">—</span></div>
+    <div class="rowline"><span class="k">Prospectos nuevos <span class="mut">(meta <span id="m-pros-lab">5</span>)</span></span><span class="v" id="wk-pros">0</span></div>
+    <div class="bar" id="bar-pros-wrap"><i id="bar-pros" style="width:0%"></i></div>
+    <div class="rowline"><span class="k">Citas propuestas <span class="mut">(meta <span id="m-citas-lab">10</span>)</span></span><span class="v" id="wk-citas">0</span></div>
+    <div class="bar" id="bar-citas-wrap"><i id="bar-citas" style="width:0%"></i></div>
+  </div>
+  <div class="card">
+    <h2>Avisos para mí</h2>
+    <div id="avisos"></div>
+  </div>
+</div>
+
+<!-- ============ PROSPECTOS ============ -->
+<div class="page" id="pg-pros">
+  <div class="card" style="border-color:var(--gold)">
+    <h2>Nuevo prospecto · 15 segundos</h2>
+    <input type="text" id="p-nombre" placeholder="Nombre (¿a quién conoces que...?)">
+    <input type="text" id="p-nota" placeholder="¿De dónde lo conozco? / momento de vida" style="margin-top:8px">
+    <button class="sellbtn" onclick="addProspecto()">➕ Guardar prospecto</button>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="abtn" style="flex:1" onclick="importarContactos()">📱 Contactos del teléfono</button>
+      <button class="abtn" style="flex:1" onclick="document.getElementById('fileimp').click()">📄 Archivo (Excel · CSV · vCard)</button>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="abtn" style="flex:1" onclick="openPegar()">📋 Pegar mi lista</button>
+      <button class="abtn" style="flex:1" onclick="plantillaCSV()">⬇️ Plantilla de Excel</button>
+    </div>
+    <button class="abtn" style="width:100%;margin-top:8px" onclick="openIdeas()">💡 ¿No sabes en quién pensar?</button>
+    <input type="file" id="fileimp" accept=".xlsx,.xls,.csv,.txt,.vcf" style="display:none" onchange="importArchivo(this)">
+    <div class="small mut" style="margin-top:6px">Excel/CSV: columnas NOMBRE (obligatoria), TELEFONO, CORREO, NOTA. iPhone: comparte tus contactos como archivo (vCard .vcf) y súbelo aquí. Impórtalos y luego califícalos con calma.</div>
+  </div>
+  <div class="card">
+    <h2>Mi hoja de prospectos</h2>
+    <div class="grid3" style="grid-template-columns:1fr 1fr 1fr 1fr;margin-bottom:8px">
+      <div class="stat"><div class="v" id="f-tot">0</div><div class="l">en lista</div></div>
+      <div class="stat"><div class="v amber" id="f-ped">0</div><div class="l">cita<br>pedida</div></div>
+      <div class="stat"><div class="v green" id="f-log">0</div><div class="l">citas<br>logradas</div></div>
+      <div class="stat"><div class="v gold" id="f-ven">0</div><div class="l">ventas</div></div>
+    </div>
+    <div class="ftabs" id="ftabs"></div>
+    <div id="proslist"></div>
+    <div class="small mut" style="margin-top:8px">Toca un nombre para calificarlo, perfilarlo, pedirle la cita y darle seguimiento. Los 4-5★ van primero.</div>
+  </div>
+</div>
+
+<!-- ============ SEMANA ============ -->
+<div class="page" id="pg-sem">
+  <div class="card">
+    <h2>Semana actual</h2>
+    <div class="grid3">
+      <div class="stat"><div class="v" id="s-pros">0</div><div class="l">prospectos<br>(meta <span id="s-pros-lab">5</span>)</div></div>
+      <div class="stat"><div class="v" id="s-citas">0</div><div class="l">citas prop.<br>(meta <span id="s-citas-lab">10</span>)</div></div>
+      <div class="stat"><div class="v" id="s-ventas">0</div><div class="l">ventas<br>(meta <span id="s-ventas-lab">1</span>)</div></div>
+    </div>
+    <div class="rowline"><span class="k">Mi índice de bateo (trimestre)</span><span class="v gold" id="bateo">—</span></div>
+    <div class="small mut" style="margin-top:4px">Citas realizadas por cada venta. Al inicio 10:1 es normal — con práctica llega a 10:2 y 10:3.</div>
+  </div>
+  <div class="card">
+    <h2>Mi trimestre · semana por semana</h2>
+    <div class="weekgrid" id="weekgrid"></div>
+    <div class="small mut" style="margin-top:8px" id="wk-leyenda">🟢 meta de prospectos y citas · 🟡 una de dos · 🔴 llama HOY a tu guía. Nadie se queda solo en rojo.</div>
+  </div>
+  <div class="card" style="border-color:var(--gold)">
+    <h2>Mi rendición de cuentas · 4DX</h2>
+    <div id="rc-score"></div>
+    <div id="rc-prev"></div>
+    <label>Mi compromiso para esta semana (1-3 acciones concretas)</label>
+    <input type="text" id="rc-txt" placeholder="Ej. 12 citas propuestas y retomar a mis 5 VIP" onchange="saveCompromiso()">
+    <button class="sellbtn" onclick="shareSemana()">📤 Enviar mi semana a mi guía</button>
+    <button class="abtn" style="width:100%;margin-top:8px" onclick="agendarCita()">📅 Agendar mi cadencia con mi guía</button>
+  </div>
+</div>
+
+<!-- ============ NÚMEROS ============ -->
+<div class="page" id="pg-num">
+  <div class="factorbox">
+    <div class="fx" id="factor">×1.00</div>
+    <div style="flex:1">
+      <div style="font-weight:800;font-size:13px">MI FACTOR ACTUAL</div>
+      <div class="small mut" id="factor-next">Registra tu primera venta para activarlo</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Mi trimestre en dinero</h2>
+    <div class="rowline"><span class="k">Ventas</span><span class="v" id="n-ventas">0</span></div>
+    <div class="rowline"><span class="k">MONTO VENDIDO (prima acumulada)</span><span class="v" id="n-prima">$0</span></div>
+    <div class="rowline"><span class="k">Ubicación (× <span id="n-ubicpct">100%</span>)</span><span class="v" id="n-ubic">$0</span></div>
+    <hr style="border-color:var(--line);margin:10px 0">
+    <div class="rowline"><span class="k">Comisión directa</span><span class="v" id="n-directa">$0</span></div>
+    <div class="rowline"><span class="k">Bono por factor <span class="gold">(retroactivo)</span></span><span class="v gold" id="n-bonof">$0</span></div>
+    <div class="rowline"><span class="k">Bono de equipo <span class="mut">(+10% con meta)</span></span><span class="v" id="n-equipo">$0</span></div>
+    <div class="rowline" style="font-size:16px;margin-top:10px"><span class="k" style="font-weight:800">TOTAL ESTIMADO</span><span class="v gold big" style="font-size:24px" id="n-total">$0</span></div>
+  </div>
+  <div class="card">
+    <h2>Avance vs mis 3 metas</h2>
+    <div class="nivel"><span class="tag">N1 MÍNIMO</span><div class="bar"><i id="bar-n1" style="width:0%"></i></div><span class="pct" id="pct-n1">0%</span></div>
+    <div class="nivel"><span class="tag">N2 MI META</span><div class="bar"><i id="bar-n2" style="width:0%"></i></div><span class="pct" id="pct-n2">0%</span></div>
+    <div class="nivel"><span class="tag">N3 IDEAL</span><div class="bar"><i id="bar-n3" style="width:0%"></i></div><span class="pct" id="pct-n3">0%</span></div>
+    <div class="small mut" style="margin-top:10px">La meta no se baja. La actividad se sube — y el factor multiplica retroactivo.</div>
+  </div>
+  <div class="card">
+    <h2>Mis ventas registradas</h2>
+    <div id="ventaslist" class="small" style="line-height:2"></div>
+  </div>
+</div>
+
+<!-- ============ METAS ============ -->
+<div class="page" id="pg-metas">
+  <div class="card" style="border-color:var(--gold)">
+    <h2>Mi meta ideal · en vivo</h2>
+    <div class="rowline"><span class="k">Meta de INGRESO del trimestre <span class="mut">(N3 · ideal)</span></span><span class="v gold" id="mv-meta">$0</span></div>
+    <div class="rowline"><span class="k">INGRESO que llevo (bonos estimados)</span><span class="v" id="mv-llevo">$0</span></div>
+    <div class="rowline"><span class="k">Me falta</span><span class="v amber" id="mv-falta">$0</span></div>
+    <div class="bar"><i id="mv-bar" style="width:0%"></i></div>
+    <div class="small" style="margin-top:9px;color:var(--ice);line-height:1.5" id="mv-plan"></div>
+  </div>
+  <div class="card">
+    <h2>Mis 3 niveles de INGRESO · sé sincero</h2>
+    <div class="small mut">Aquí hablamos de tu INGRESO: lo que necesitas GANAR al mes para cubrir tus gastos y blindar tus fines.</div>
+    <label>💸 NIVEL 1 · INGRESO mínimo al MES (cubre mis gastos básicos — de aquí no bajo)</label>
+    <input type="text" inputmode="numeric" id="in-n1" placeholder="$22,000" onchange="saveCfg('metas')">
+    <label>💰 NIVEL 2 · INGRESO meta al MES (básicos + gustos)</label>
+    <input type="text" inputmode="numeric" id="in-n2" placeholder="$28,000" onchange="saveCfg('metas')">
+    <label>🛡️ NIVEL 3 · INGRESO ideal al MES (+ ahorro, calidad de vida, grandes momentos)</label>
+    <input type="text" inputmode="numeric" id="in-n3" placeholder="$40,000" onchange="saveCfg('metas')">
+    <label>📄 MONTO DE VENTA promedio (prima ANUAL de cada póliza que recomiendas — NO es tu ingreso)</label>
+    <input type="text" inputmode="numeric" id="in-prima" placeholder="$50,000" onchange="saveCfg('metas')">
+    <label>🎯 Mi índice de bateo esperado (citas para lograr 1 venta — al inicio 10, con práctica 5)</label>
+    <input type="number" id="in-bateo" placeholder="10" onchange="saveCfg('metas')">
+    <label>% ubicación de mis planes (Trasciende 90 · estándar 100)</label>
+    <input type="number" id="in-ubic" placeholder="100" onchange="saveCfg('metas')">
+  </div>
+  <div class="card">
+    <h2>Lo que exige cada meta (10X)</h2>
+    <div id="sim10x"></div>
+    <div class="small mut" style="margin-top:8px">Si tu ideal pide más de 10 citas/semana, no sueñes más chico: sube actividad o mejora tu bateo.</div>
+  </div>
+</div>
+
+<!-- ============ YO ============ -->
+<div class="page" id="pg-yo">
+  <div class="card" style="border-color:var(--gold)">
+    <h2>Mis datos · preséntate</h2>
+    <div class="small mut">Esta app es TUYA: cuéntale quién eres y te acompañará por tu nombre.</div>
+    <label>Mi nombre completo</label>
+    <input type="text" id="in-nombre" placeholder="Nombre y apellidos" onchange="saveCfg()">
+    <label>¿Cómo te gusta que te llamen?</label>
+    <input type="text" id="in-apodo" placeholder="Ej. Gera, Licenciado, Doc…" onchange="saveCfg()">
+    <label>Teléfono (será tu USUARIO para entrar desde otro dispositivo)</label>
+    <input type="tel" id="in-tel" placeholder="10 dígitos" onchange="saveCfg()">
+    <label style="color:var(--gold)">🔑 Mi contraseña (PIN de 4 a 6 dígitos) — aquí la creas y aquí la CAMBIAS cuando quieras</label>
+    <input type="tel" id="in-pin" placeholder="Ej. 2580" maxlength="6" onchange="saveCfg()">
+    <div class="small mut">Con tu teléfono + esta contraseña recuperas tu cuenta en cualquier dispositivo. Si la cambias, usa la nueva a partir de ese momento.</div>
+    <div id="bkstatus" style="margin-top:8px"></div>
+    <button class="abtn" style="width:100%;margin-top:8px" onclick="checkBackup()">☁️ Verificar mi respaldo en la nube</button>
+    <label>Correo electrónico</label>
+    <input type="email" id="in-mail" placeholder="correo@..." onchange="saveCfg()">
+    <label>Fecha de nacimiento</label>
+    <input type="date" id="in-nac" onchange="saveCfg()">
+    <label>Estado civil</label>
+    <select id="in-civil" onchange="saveCfg()"><option></option><option>Soltero/a</option><option>Casado/a</option><option>Unión libre</option><option>Divorciado/a</option><option>Viudo/a</option></select>
+    <label>Mi cónyuge / pareja (nombre)</label>
+    <input type="text" id="in-conyn" placeholder="Nombre" onchange="saveCfg()">
+    <label>Fecha de nacimiento de mi pareja</label>
+    <input type="date" id="in-conynac" onchange="saveCfg()">
+    <h4 class="sec">Mis hijos · nombre y edad</h4>
+    <div id="hijoslist"></div>
+    <button class="abtn" style="width:100%;margin-top:8px" onclick="addHijo()">➕ Agregar hijo/a</button>
+    <h4 class="sec">Mis redes sociales · marca las que usas</h4>
+    <div class="chips" id="chips-redes"></div>
+    <div id="redesinputs"></div>
+    <h4 class="sec">Mis hobbies · marca los tuyos</h4>
+    <div class="chips" id="chips-hob"></div>
+    <div id="deporteinput"></div>
+    <label style="color:var(--gold)">✨ ¿Qué es lo que MÁS sueñas? ¿Qué te haría muy feliz si pasara?</label>
+    <textarea rows="3" id="in-sueno" placeholder="Escríbelo con detalle, como si ya estuviera pasando… Este sueño va a trabajar contigo todos los días." onchange="saveCfg()"></textarea>
+    <label>Algo más de mí (lo que quieras contar)</label>
+    <textarea rows="2" id="in-algomas" placeholder="Historia, contexto, lo que te hace tú…" onchange="saveCfg()"></textarea>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="abtn" style="flex:1" onclick="backupDatos()">💾 Respaldo</button>
+      <button class="abtn" style="flex:1" onclick="restoreFlow()">🔄 Traer mi cuenta aquí</button>
+    </div>
+    <div class="small mut" style="margin-top:6px">Con tu teléfono + contraseña, tu información te sigue: computadora, celular o un teléfono nuevo.</div>
+  </div>
+  <div class="card" style="border-color:var(--gold)">
+    <h2>¿Aún no sabes tu arquetipo o tus enfoques?</h2>
+    <div class="small" style="color:var(--ice);line-height:1.5">Haz tu diagnóstico aquí mismo: 2 minutos, y tu perfil se llena solo.</div>
+    <button class="sellbtn" onclick="openDiag()">🧭 Hacer mi diagnóstico</button>
+  </div>
+  <div class="card">
+    <h2>Mi propósito · por quién peleo</h2>
+    <label>¿Por quién peleo? (con nombres)</label>
+    <input type="text" id="in-quien" placeholder="Ana, Diego y Sofía" onchange="saveCfg()">
+    <h4 class="sec">Mis fines — marca los que te muevan y DECIDE tus 3</h4>
+    <div class="small mut">Toca un fin para mandarlo a tus 3 NO negociables. También puedes escribirlos con tus palabras.</div>
+    <div class="chips" id="chips-fines"></div>
+    <label>Mis 3 fines NO negociables</label>
+    <input type="text" id="in-fin1" placeholder="1. El más importante" onchange="saveCfg()">
+    <input type="text" id="in-fin2" placeholder="2." onchange="saveCfg()">
+    <input type="text" id="in-fin3" placeholder="3." onchange="saveCfg()">
+    <h4 class="sec">Mi arquetipo</h4>
+    <div class="chips" id="chips-arq"></div>
+    <h4 class="sec">Mis 2 enfoques bandera</h4>
+    <div class="chips" id="chips-enf"></div>
+  </div>
+  <div class="card">
+    <h2>Mi declaración</h2>
+    <div class="decl" id="declaracion">Completa tus datos y tu declaración se escribe sola.</div>
+  </div>
+  <div class="card">
+    <h2>Mis materiales <button class="undo" style="float:right;margin-top:0" onclick="toggleLinkEdit()">✏️ editar links (guía)</button></h2>
+    <div id="matlist"></div>
+    <div class="small mut" style="margin-top:8px">Tu guía carga aquí los links (Drive, WhatsApp, web) una sola vez — y tienes todo en un solo lugar.</div>
+  </div>
+  <div class="card">
+    <h2>Reiniciar</h2>
+    <button class="undo" onclick="ask('¿Borrar TODOS los datos del prototipo?',function(){DB={log:[],ventas:[],cfg:defCfg(),comp:{},pros:[],plan:{},tareas:[]};persist();location.reload()})">borrar todos mis datos</button>
+  </div>
+</div>
+
+<div class="footer-note">GRATITUD 360 · Tus datos se guardan en este dispositivo y tu avance se comparte con tu despacho Segurzen para acompañarte · La asesoría y venta del seguro siempre las realiza el agente con cédula (Segurzen · GNP)</div>
+
+<div class="tabs">
+  <button class="active" onclick="go('hoy',this)"><span class="ic">☀️</span>HOY</button>
+  <button onclick="go('pros',this)"><span class="ic">👥</span>PROSPECTOS</button>
+  <button onclick="go('sem',this)"><span class="ic">📅</span>SEMANA</button>
+  <button onclick="go('num',this)"><span class="ic">💰</span>NÚMEROS</button>
+  <button onclick="go('metas',this)"><span class="ic">🎯</span>METAS</button>
+  <button onclick="go('yo',this)"><span class="ic">🧭</span>YO</button>
+</div>
+
+<!-- MODAL IDEAS DE PROSPECCION -->
+<div class="modal" id="ideamodal">
+  <div class="sheet">
+    <h3>💡 ¿En quién pensar? · preguntas que abren la memoria</h3>
+    <div class="small mut">Lee cada pregunta con calma. Cuando alguien te venga a la mente, tócala: te la dejo lista para capturarlo.</div>
+    <div id="idealist"></div>
+    <button class="sellbtn" onclick="closeIdeas()">Cerrar</button>
+  </div>
+</div>
+
+<!-- MODAL CIERRE DEL DIA -->
+<div class="modal" id="ciemodal">
+  <div class="sheet">
+    <h3>🌙 Revisión y planeación · 5 minutos</h3>
+    <div class="small mut">El día que se planea la noche anterior, se gana dos veces.</div>
+    <h4 class="sec">Mi día de hoy</h4>
+    <div id="cie-resumen"></div>
+    <label>¿Qué aprendí hoy?</label>
+    <input type="text" id="cie-apr" placeholder="Una lección, una frase, un descubrimiento">
+    <h4 class="sec">🌤 Así se ve tu MAÑANA — ¿estás listo?</h4>
+    <div id="cie-manana"></div>
+    <h4 class="sec">Mis 3 prioridades de MAÑANA (en orden)</h4>
+    <input type="text" id="cie-p1" placeholder="1. La más importante — hazla primero">
+    <input type="text" id="cie-p2" placeholder="2." style="margin-top:8px">
+    <input type="text" id="cie-p3" placeholder="3." style="margin-top:8px">
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <button class="abtn" style="flex:1" onclick="closeCierre()">Cancelar</button>
+      <button class="sellbtn" style="flex:2;margin-top:0" onclick="saveCierre()">Guardar y descansar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PROSPECTO -->
+<div class="modal" id="prosmodal">
+  <div class="sheet" id="prossheet"></div>
+</div>
+
+<!-- MODAL AGENDA -->
+<div class="modal" id="agmodal">
+  <div class="sheet">
+    <h3>⏰ Mi agenda de poder</h3>
+    <div class="small mut">Momentos fijos, lunes a viernes. Se vale moverlos de hora — no se vale saltarlos.</div>
+    <div id="agedit"></div>
+    <h4 class="sec">➕ Mis propias acciones y tareas</h4>
+    <div class="small mut">Agrega lo tuyo: llamadas, trámites, pendientes — aparecen en tu día por horario.</div>
+    <div style="display:flex;gap:8px;margin-top:6px">
+      <input type="date" id="t-fecha" style="max-width:135px">
+      <input type="time" id="t-hora" value="10:00" style="max-width:100px">
+    </div>
+    <input type="text" id="t-txt" placeholder="Ej. llamar al banco / preparar carpeta de Laura" style="margin-top:8px">
+    <button class="abtn" style="width:100%;margin-top:8px" onclick="addTarea()">➕ Agregar a mi día</button>
+    <div id="tarealist" style="margin-top:8px"></div>
+    <div class="aviso" style="margin-top:12px">🔔 Los recordatorios de la app suenan mientras esté abierta en tu teléfono. Para que te avise <b>aunque la app esté cerrada</b>, toca "➕ a mi calendario" en cada bloque: tu calendario te lo recordará todos los días hábiles.</div>
+    <button class="sellbtn" onclick="closeAgenda()">Listo</button>
+  </div>
+</div>
+
+<!-- MODAL DIAGNOSTICO -->
+<div class="modal" id="diagmodal">
+  <div class="sheet">
+    <h3>🧭 Mi diagnóstico exprés</h3>
+    <div class="small mut">No es un examen: es un espejo. Toca lo que diga «ese soy yo».</div>
+    <h4 class="sec">1 · ¿Quién soy yo en esta historia?</h4>
+    <div id="diag-arq"></div>
+    <h4 class="sec">2 · ¿Qué me habría gustado que alguien me ayudara a proteger?</h4>
+    <div class="small mut">Toca los que te muevan (elegiremos tus 2 banderas).</div>
+    <div id="diag-enf"></div>
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <button class="abtn" style="flex:1" onclick="closeDiag()">Cerrar</button>
+      <button class="sellbtn" style="flex:2;margin-top:0" onclick="applyDiag()">Ver mi resultado</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL VENTA -->
+<div class="modal" id="modal">
+  <div class="sheet">
+    <h3>🏆 ¡Registrar venta!</h3>
+    <div class="small mut">El mismo día del cierre — sin registro no hay bono.</div>
+    <label>Ramo</label>
+    <select id="v-rubro">
+      <option value="VIDA">Vida</option><option value="GMM">Gastos Médicos</option>
+      <option value="AUTOS">Autos</option><option value="HOGAR">Hogar</option><option value="MASCOTAS">Mascotas</option>
+    </select>
+    <label>Prima anual ($)</label>
+    <input type="text" inputmode="numeric" id="v-prima" placeholder="$50,000">
+    <label>Nombre del cliente (opcional)</label>
+    <input type="text" id="v-nombre" placeholder="Familia García">
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <button class="abtn" style="flex:1" onclick="closeVenta()">Cancelar</button>
+      <button class="sellbtn" style="flex:2;margin-top:0" onclick="saveVenta()">Guardar venta</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== Reglas GRATITUD 360 (v2.5) =====
+const MATRIZ=[[60000,[1.05,1.10,1.15,1.20]],[150000,[1.15,1.20,1.25,1.30]],[300000,[1.25,1.30,1.35,1.40]],
+ [600000,[1.35,1.40,1.45,1.50]],[800000,[1.45,1.50,1.55,1.60]],[1000000,[1.55,1.60,1.65,1.70]]];
+const COLS=[2,4,6,8];
+const BONOS={VIDA:.10,GMM:.04,AUTOS:.03,HOGAR:.05,MASCOTAS:.03}; // categoría A
+const MINIMO=(prima)=> prima>=10000?300:200;
+const ARQS=["Arquitecto de Legado","Protector Responsable","Estratega Financiero","Familia Aspiracional","Talento Clave Corporativo","Patrimonial en Transición"];
+const ARQD=["Ya construí algo y quiero que trascienda en orden","Los míos dependen de mí y no les puede faltar nada","Quiero que cada peso trabaje de forma inteligente","Estamos construyendo: queremos más para los nuestros","Soy pieza clave donde trabajo y mi ingreso es el motor","Mi patrimonio o mi etapa de vida está cambiando y necesito orden"];
+const ENFS=["Tu Vida en Orden 360","Retiro Sin Miedo","Que Nada Se Rompa","Educación y Grandes Momentos","Legado en Paz","La Empresa Sigue Sin Ti","Socios Sin Guerra","Equipo Que Se Queda","Mi Propósito Protegido","Dignidad a Futuro","Salud Sin Ruina","Vivir Pleno Sin Dependencia"];
+const ENFD=["Todo tu mundo en orden — la puerta universal","Tu futuro con dignidad, sin depender de nadie","El plan de tu familia, aunque tú llegaras a faltar","La universidad y los momentos que no se repiten","Herencia ordenada, familia unida","Tu negocio no muere contigo","Sociedades que sobreviven a los socios","El talento clave, protegido y comprometido","Lo que te da sentido, blindado","Vejez con decisiones propias","Que una enfermedad no se lleve tu patrimonio","Plenitud sin ser carga de nadie"];
+const MATERIALES=[["agenda","📅 Agenda de Gerardo (reservar cita)"],["agendaSeg","📅 Agenda Segurzen (otros agentes)"],["diag","Diagnóstico completo · Mi Propósito (Excel)"],["proceso","Mi Proceso · Excel del sistema"],["cuaderno","Cuaderno de trabajo (imprimible)"],["manual","Manual de capacitación"],["present","Presentación GRATITUD 360"],["db","🔒 Base de datos (solo guía · URL del script)"]];
+const SHEET_URL="https://script.google.com/macros/s/AKfycbw9lQ2_Gnee4ghAp4QIlMhatfpzh8WSbdtutL_Wq8FiI9PnpR4DWsOJlfwyqARP3bc2ZA/exec"; // Base de datos Segurzen (integrada)
+const CLAVE_ACCESO="SEGURZEN360"; // clave de invitación: la entrega el guía a cada promotor
+const GUIA_WA="524498041889"; // WhatsApp del guía (Gerardo)
+const ESTRELLAS=["Me recibiría","Momento de necesidad","Puede pagarlo","Edad y salud OK","Decide"];
+const FRASES=[
+ "No es una llamada: es {fin} tocando la puerta.",
+ "Piensa en {quien} antes de marcar. Ellos no pueden hacer esta llamada — tú sí.",
+ "La llamada dura 3 minutos. No hacerla te cuesta la semana.",
+ "No vendes seguros: abres la puerta a que una familia esté bien.",
+ "Tu futuro se escribe en la agenda, no en las intenciones.",
+ "El mejor momento era en la mañana. El segundo mejor es AHORA.",
+ "Cada nombre en tu lista es una familia que aún no sabe que la vas a ayudar.",
+ "Hoy no necesitas motivación: necesitas 30 minutos. La motivación llega sola al terminar.",
+ "{quien} no ve tus intenciones. Ve tus resultados.",
+ "Una cita más hoy = un paso más cerca de {fin}.",
+ "Cierra los ojos un segundo: {sueno}. Ahora abre la agenda — así se llega.",
+ "Cada llamada de hoy es un ladrillo de esto: {sueno}."
+];
+function fill(s){ const c=DB.cfg; return s.replace(/{quien}/g,c.quien||"tu familia").replace(/{fin}/g,c.fin1||"tus fines").replace(/{sueno}/g,c.sueno?c.sueno.slice(0,80):"tu gran sueño") }
+function miNombre(){ const c=DB.cfg; return c.apodo||((c.nombre||"").split(" ")[0])||"" }
+function conNombre(base){ const n=miNombre(); return n? base+", "+n : base }
+function frase(){ const d=new Date(); return fill(FRASES[(d.getDate()+d.getHours())%FRASES.length]) }
+
+// ===== Mensajes propios (los alert/confirm del navegador se bloquean en algunos visores) =====
+const _winopen=window.open? window.open.bind(window):null;
+function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;") }
+function msgBox(html,btns){
+  const ov=document.createElement('div'); ov.className="msgover";
+  ov.innerHTML='<div class="msgbox"><div class="mtxt">'+html+'</div><div class="mbtns">'+
+    btns.map((b,i)=>'<button class="'+(i===0?'primary':'sec')+'" data-i="'+i+'">'+b[0]+'</button>').join('')+'</div></div>';
+  ov.querySelectorAll('button').forEach(bt=>{ bt.onclick=()=>{ const fn=btns[+bt.dataset.i][1]; try{ if(fn) fn(); }finally{ ov.remove(); } } }); // fn corre ANTES de quitar el modal (para poder leer sus campos)
+  document.body.appendChild(ov);
+}
+function showMsg(t){ msgBox(esc(t),[["Entendido",null]]) }
+window.alert=showMsg;
+function ask(t,yes){ msgBox(esc(t),[["Sí",yes],["Ahora no",null]]) }
+function copiar(txt,aviso){
+  const done=()=>showMsg(aviso||"📋 Copiado. Pégalo donde lo necesites.");
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(()=>fallbackCopy(txt,done)) }
+  else fallbackCopy(txt,done);
+}
+function fallbackCopy(txt,done){
+  const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy')}catch(e){} ta.remove(); done();
+}
+function descargar(contenido,nombre,tipo){
+  let ok=false;
+  try{
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([contenido],{type:tipo}));
+    a.download=nombre; document.body.appendChild(a); a.click(); a.remove(); ok=true;
+  }catch(e){}
+  return ok;
+}
+function openURL(u){
+  let w=null; try{ w=_winopen&&_winopen(u,"_blank") }catch(e){}
+  if(!w){ msgBox('Tu visor bloqueó abrir la liga directamente. Tócala aquí:<br><br><a href="'+u+'" target="_blank" rel="noopener" style="color:var(--gold);word-break:break-all;font-weight:800">ABRIR LIGA →</a>',[["Cerrar",null]]) }
+}
+// ===== Persistencia segura (localStorage con respaldo en memoria) =====
+let memStore={};
+function sget(k){ try{return localStorage.getItem(k)}catch(e){return memStore[k]||null} }
+function sset(k,v){ try{localStorage.setItem(k,v)}catch(e){memStore[k]=v} }
+function defCfg(){ return {nombre:"",apodo:"",tel:"",pin:"",mail:"",nac:"",civil:"",conyN:"",conyNac:"",hijos:[],redesL:{},hobbiesL:[],deporte:"",sueno:"",algomas:"",
+  n1:22000,n2:28000,n3:40000,prima:50000,ubic:100,bateo:10,quien:"",fin1:"",fin2:"",fin3:"",arq:"",enf:[],links:{},metasOk:false,
+  blocks:[{h:"08:00",t:"Revisar mi hoja de prospectos y AGENDAR citas",fix:1},
+          {h:"11:30",t:"Prospección — contactos nuevos del día",fix:1},
+          {h:"17:00",t:"Seguimiento — nadie se queda sin siguiente paso",fix:1},
+          {h:"19:30",t:"🌙 Revisión del día y planeación de mañana",fix:1}]} }
+let DB={log:[],ventas:[],cfg:defCfg(),comp:{},pros:[],plan:{},tareas:[]};
+try{ const raw=sget('g360'); if(raw){ const P=JSON.parse(raw); DB={...{log:[],ventas:[],cfg:defCfg(),comp:{},pros:[],plan:{},tareas:[]},...P,cfg:{...defCfg(),...(P.cfg||{})},comp:P.comp||{},pros:P.pros||[],plan:P.plan||{},tareas:P.tareas||[]}; } }catch(e){}
+if(!DB.cfg.blocks||DB.cfg.blocks.length<4||!DB.cfg.blocks[0].fix) DB.cfg.blocks=defCfg().blocks;
+function persist(){ sset('g360',JSON.stringify(DB));
+  // sincronización viva: a los 8s de cualquier cambio, semana, pipeline, prospectos y respaldo se suben solos a la base
+  try{ if(typeof datosOk==="function" && datosOk()){
+    clearTimeout(window._bkT);
+    window._bkT=setTimeout(()=>{
+      syncDB("semana",semanaData()); syncDB("pipeline",pipelineData()); syncDB("prospectos",prospectosData());
+      if(DB.cfg.pin){ syncDB("backup",{tel:DB.cfg.tel,pin:DB.cfg.pin,data:JSON.stringify(DB)}); DB.lastBackup=Date.now(); }
+      DB.lastSync=Date.now(); sset('g360',JSON.stringify(DB));
+    },8000);
+  } }catch(e){}
+}
+
+// ===== Utilidades de fecha =====
+const now=new Date();
+function iso(d){ return d.toISOString().slice(0,10) }
+function hoy(){ return iso(new Date()) }
+function weekStart(d){ const x=new Date(d); const day=(x.getDay()+6)%7; x.setDate(x.getDate()-day); x.setHours(0,0,0,0); return x }
+function trimStart(){ const m=Math.floor(now.getMonth()/3)*3; return new Date(now.getFullYear(),m,1) }
+function inTrim(ds){ return new Date(ds+"T12:00:00")>=trimStart() }
+function inWeek(ds,ws){ const d=new Date(ds+"T12:00:00"); const e=new Date(ws); e.setDate(e.getDate()+7); return d>=ws&&d<e }
+function fmt(n){ return "$"+Math.round(n).toLocaleString("es-MX") }
+function pm(v){ return +String(v).replace(/[^0-9.]/g,'')||0 } // parsea "$150,000" → 150000
+
+// ===== Motor de cálculo =====
+function factorFor(ubic,ventas){
+  let fila=null; for(const [t,vals] of MATRIZ){ if(ubic>=t) fila=vals } if(!fila) return 1;
+  let col=0; for(let i=0;i<COLS.length;i++){ if(ventas>=COLS[i]) col=i }
+  if(ventas<COLS[0]) return 1;
+  return fila[col];
+}
+function nextStep(ubic,ventas){
+  for(const [t] of MATRIZ){ if(ubic<t) return {falta:t-ubic, nivel:t} } return null;
+}
+// Metas dinámicas: la actividad requerida por MI META IDEAL (N3). Nunca menos del ritmo estándar 5/10.
+function ventasPara(m){ // ventas necesarias para un ingreso trimestral m (sin tope artificial)
+  const c=DB.cfg, prima=+c.prima||50000, ub=(+c.ubic||100)/100;
+  let n=1; for(;n<300;n++){ if(n*prima*0.10*factorFor(n*prima*ub,n)>=m) break }
+  return n;
+}
+function metasReq(){
+  const c=DB.cfg, m=((+c.n3||+c.n2||28000))*3, bateo=+c.bateo||10;
+  const n=ventasPara(m);
+  const vSem=n/12;
+  const citasSem=Math.max(10, Math.ceil(vSem*bateo));
+  const prospSem=Math.max(5, Math.ceil(citasSem/2));
+  return {m, n, vSem, citasSem, prospSem, bateo, citaDia:Math.max(2,Math.ceil(citasSem/5)), prospDia:Math.max(1,Math.ceil(prospSem/5)), vSemLab:Math.max(1,Math.round(vSem*10)/10)};
+}
+function weekKey(d){ return iso(weekStart(d)) }
+function calc(){
+  const c=DB.cfg, ub=(+c.ubic||100)/100;
+  const vs=DB.ventas.filter(v=>inTrim(v.date));
+  const prima=vs.reduce((a,v)=>a+v.prima,0);
+  const ubic=prima*ub;
+  const nv=vs.length;
+  const f=factorFor(ubic,nv);
+  let directa=0;
+  vs.forEach(v=>{ directa+=Math.max(v.prima*(BONOS[v.rubro]||0.03), MINIMO(v.prima)) });
+  // el factor multiplica el bono (los mínimos no multiplican — simplificación conservadora: aplica factor a todo lo que exceda mínimos)
+  const base=vs.reduce((a,v)=>a+v.prima*(BONOS[v.rubro]||0.03),0);
+  const bonoF=base*(f-1);
+  const equipo=(directa+bonoF)*0.10;
+  const total=directa+bonoF+equipo;
+  return {prima,ubic,nv,f,directa,bonoF,equipo,total};
+}
+
+// ===== Registro =====
+function add(tipo){
+  if(!datosOk()){ pideDatos(); return }
+  if(tipo==='prospecto'){ // captura completa en su sección: todo en el mismo lugar
+    go('pros', document.querySelectorAll('.tabs button')[1]);
+    setTimeout(()=>document.getElementById('p-nombre').focus(),100);
+    return;
+  }
+  DB.log.push({date:hoy(),tipo}); persist(); render();
+  const MQ=metasReq();
+  if(tipo==='citaP' && count('citaP')===MQ.citaDia){ setTimeout(()=>alert("🎉 ¡Lograste tus "+MQ.citaDia+" citas de HOY"+(miNombre()?", "+miNombre():"")+"!\n\n"+frase()),100) }
+}
+function undo(){ if(DB.log.length) ask("¿Deshacer el último registro de actividad?",()=>{ DB.log.pop(); persist(); render(); }) }
+function openVenta(){ if(!datosOk()){ pideDatos(); return } document.getElementById('modal').classList.add('open') }
+function closeVenta(){ document.getElementById('modal').classList.remove('open') }
+function saveVenta(){
+  const rubro=document.getElementById('v-rubro').value;
+  const prima=pm(document.getElementById('v-prima').value);
+  if(!prima||prima<=0){ alert("Escribe la prima anual"); return }
+  const antes=calc().f;
+  const vnom=document.getElementById('v-nombre').value||"";
+  DB.ventas.push({date:hoy(),rubro,prima,nombre:vnom});
+  DB.log.push({date:hoy(),tipo:'venta'});
+  if(vnom){ const pp=DB.pros.find(x=>x.nombre===vnom&&x.estado!=="CLIENTE"); if(pp) pp.estado="CLIENTE" }
+  persist(); closeVenta(); render();
+  const desp=calc().f;
+  if(desp>antes){ setTimeout(()=>alert("🚀 ¡SUBISTE DE NIVEL! Tu factor pasó de ×"+antes.toFixed(2)+" a ×"+desp.toFixed(2)+" — y aplica RETROACTIVO a todo tu trimestre."),150) }
+  else{ setTimeout(()=>alert("🏆 ¡Felicidades! Venta registrada. Cada venta te acerca a tu siguiente nivel."),150) }
+  document.getElementById('v-prima').value=""; document.getElementById('v-nombre').value="";
+}
+function toastAviso(){}
+
+// ===== Contadores =====
+function count(tipo,desde){ return DB.log.filter(l=>l.tipo===tipo && (desde? inWeek(l.date,desde) : l.date===hoy())).length }
+function countTrim(tipo){ return DB.log.filter(l=>l.tipo===tipo && inTrim(l.date)).length }
+
+// ===== Avisos inteligentes =====
+function avisos(){
+  const out=[]; const ws=weekStart(new Date());
+  const pros=count('prospecto',ws), citas=count('citaP',ws), ventasW=DB.ventas.filter(v=>inWeek(v.date,ws)).length;
+  const dow=(new Date().getDay()+6)%7; // 0=lunes
+  const k=calc(), MQ=metasReq();
+  if(DB.log.length===0 && DB.ventas.length===0){ out.push(["",conNombre("Bienvenido")+". Tu meta ideal pide "+MQ.prospSem+" prospectos y "+MQ.citasSem+" citas propuestas por semana. Las medidas predictivas son las que SÍ controlas."]) }
+  if(DB.cfg.nac && DB.cfg.nac.slice(5)===hoy().slice(5)) out.unshift(["win","🎂 ¡Feliz cumpleaños"+(miNombre()?", "+miNombre():"")+"! Hoy celebra — y recuerda por qué haces esto: "+(DB.cfg.quien||"los tuyos")+"."]);
+  if(dow>=3 && citas<Math.ceil(MQ.citasSem*0.6)) out.push(["warn","⏰ Ya es "+["lunes","martes","miércoles","jueves","viernes","sábado","domingo"][dow]+" y llevas "+citas+" de "+MQ.citasSem+" citas propuestas. Hoy tocan "+MQ.citaDia+" — bloquea 2 horas: tus fines no se logran solos."]);
+  if(pros>=MQ.prospSem&&citas>=MQ.citasSem) out.push(["win","🟢 Semana en verde: "+pros+" prospectos y "+citas+" citas — al ritmo de tu meta IDEAL. Así se ve la disciplina. ¡Sigue!"]);
+  const nx=nextStep(k.ubic,k.nv);
+  if(k.nv>0&&nx){ const ventasFalta=Math.ceil(nx.falta/(+DB.cfg.prima||50000));
+    out.push(["","🎯 Estás a "+fmt(nx.falta)+" (~"+ventasFalta+" venta"+(ventasFalta>1?"s":"")+") de subir tu factor. El salto re-paga TODO tu trimestre."]) }
+  if(k.nv===0&&DB.log.length>0) out.push(["","La primera venta del trimestre activa tu factor. Tu bateo dice que ~10 citas te dan 1 venta: son citas, no suerte."]);
+  const ultimos3=DB.log.filter(l=>{ const d=new Date(l.date+"T12:00:00"); return (new Date()-d)/864e5<=3 });
+  if(DB.log.length>0&&ultimos3.length===0) out.push(["alert","🔴 Llevas 3+ días sin registrar actividad. No te apagues: UN prospecto hoy reenciende la máquina. ¿Le llamas a tu guía?"]);
+  const n2t=(+DB.cfg.n2||0)*3;
+  if(n2t>0&&k.total>=n2t) out.push(["win","🏆 ¡META DEL TRIMESTRE LOGRADA! Tu total estimado ya cubre tu Nivel 2. Ahora ve por el Nivel 3: blindar tus fines."]);
+  if(out.length===0) out.push(["","Todo en orden. Recuerda tu cadencia: 15 minutos con tu guía cada semana."]);
+  if(new Date().getHours()>=19 && !DB.plan[iso(new Date(Date.now()+864e5))]) out.push(["warn","🌙 Antes de cerrar: 5 minutos de revisión y tus 3 de mañana. El día que se planea la noche anterior, se gana dos veces."]);
+  const hot=DB.pros.filter(p=>pScore(p)>=4&&p.estado==="NUEVO");
+  if(hot.length) out.push(["","🔥 Tienes "+hot.length+" prospecto"+(hot.length>1?"s":"")+" de 4-5★ sin cita propuesta: "+hot.slice(0,2).map(p=>p.nombre).join(", ")+". Ese es tu siguiente café — no lo dejes enfriar."]);
+  const due=DB.pros.filter(p=>p.nextFecha&&p.nextFecha<=hoy()&&p.estado!=="DESCARTADO");
+  if(due.length) out.push(["warn","📌 Siguientes pasos para HOY: "+due.slice(0,3).map(p=>p.nombre.split(" ")[0]+" ("+(p.nextTxt||"").slice(0,25)+")").join(" · ")+". Un seguimiento a tiempo vale una venta."]);
+  const blk=(DB.cfg.blocks||[]).find(b=>blockStatus(b)==="now");
+  if(blk) out.unshift(["win","▶ AHORA toca: "+blk.t+" ("+blk.h+").\n"+frase()]);
+  return out;
+}
+
+// ===== Render =====
+let curTab='hoy', tabHist=[];
+function go(id,btn,noHist){
+  if(!noHist && curTab!==id) tabHist.push(curTab);
+  curTab=id;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('pg-'+id).classList.add('active');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('backbtn').style.display=tabHist.length?"block":"none";
+  window.scrollTo(0,0); render();
+}
+function goBack(){
+  const t=tabHist.pop()||'hoy';
+  go(t, document.querySelectorAll('.tabs button')[TABIDS.indexOf(t)], true);
+  document.getElementById('backbtn').style.display=tabHist.length?"block":"none";
+}
+function render(){
+  const ws=weekStart(new Date());
+  const MQ=metasReq();
+  // Saludo personalizado (todas las páginas comparten el encabezado)
+  {
+    const h=new Date().getHours(), n=miNombre();
+    const cumple=DB.cfg.nac && DB.cfg.nac.slice(5)===hoy().slice(5);
+    document.getElementById('saludo').textContent = cumple? "🎂 ¡Feliz cumpleaños"+(n?", "+n:"")+"!" :
+      (h<12?"Buenos días":h<19?"Buenas tardes":"Buenas noches")+(n?", "+n:"")+" 👋";
+  }
+  // HOY
+  ['prospecto','citaP','citaR'].forEach(t=>{ document.getElementById('c-'+t).textContent=count(t)+" hoy" });
+  const pros=count('prospecto',ws), citas=count('citaP',ws);
+  document.getElementById('m-pros-lab').textContent=MQ.prospSem;
+  document.getElementById('m-citas-lab').textContent=MQ.citasSem;
+  document.getElementById('wk-pros').textContent=pros; document.getElementById('wk-citas').textContent=citas;
+  document.getElementById('bar-pros').style.width=Math.min(100,pros/MQ.prospSem*100)+"%";
+  document.getElementById('bar-citas').style.width=Math.min(100,citas/MQ.citasSem*100)+"%";
+  document.getElementById('bar-pros-wrap').className="bar"+(pros>=MQ.prospSem?" green":"");
+  document.getElementById('bar-citas-wrap').className="bar"+(citas>=MQ.citasSem?" green":"");
+  const sem=document.getElementById('semaforo');
+  if(pros>=MQ.prospSem&&citas>=MQ.citasSem){sem.className="sem g";sem.textContent="🟢 VERDE"}
+  else if(pros>=MQ.prospSem||citas>=MQ.citasSem){sem.className="sem a";sem.textContent="🟡 AMARILLO"}
+  else {sem.className="sem r";sem.textContent="🔴 EN CONSTRUCCIÓN"}
+  // META EN VIVO
+  const k0=calc();
+  document.getElementById('mv-meta').textContent=fmt(MQ.m);
+  document.getElementById('mv-llevo').textContent=fmt(k0.total);
+  document.getElementById('mv-falta').textContent=fmt(Math.max(0,MQ.m-k0.total));
+  document.getElementById('mv-bar').style.width=Math.min(100,MQ.m>0?k0.total/MQ.m*100:0)+"%";
+  document.getElementById('mv-plan').innerHTML = MQ.m-k0.total<=0 ?
+    "🏆 <b>¡META IDEAL LOGRADA!</b> Ahora todo lo que sumes blinda todavía más tus fines." :
+    "Para lograrla: <b>"+MQ.n+" ventas</b> en el trimestre (~"+MQ.vSemLab+"/sem) · <b>"+MQ.citasSem+" citas/sem</b> (≈"+MQ.citaDia+" al día) · <b>"+MQ.prospSem+" prospectos/sem</b> (≈"+MQ.prospDia+" al día). La meta no se baja — la actividad se sube.";
+  document.getElementById('avisos').innerHTML=avisos().map(a=>'<div class="aviso '+a[0]+'">'+a[1]+'</div>').join('');
+  // SEMANA
+  document.getElementById('s-pros').textContent=pros;
+  document.getElementById('s-citas').textContent=citas;
+  document.getElementById('s-ventas').textContent=DB.ventas.filter(v=>inWeek(v.date,ws)).length;
+  document.getElementById('s-pros-lab').textContent=MQ.prospSem;
+  document.getElementById('s-citas-lab').textContent=MQ.citasSem;
+  document.getElementById('s-ventas-lab').textContent=MQ.vSemLab;
+  const cr=countTrim('citaR'), nvv=DB.ventas.filter(v=>inTrim(v.date)).length;
+  document.getElementById('bateo').textContent=nvv>0?(cr/nvv).toFixed(1)+" : 1":"—";
+  const grid=document.getElementById('weekgrid'); grid.innerHTML="";
+  const t0=weekStart(trimStart());
+  for(let i=0;i<12;i++){
+    const s0=new Date(t0); s0.setDate(s0.getDate()+i*7);
+    const p2=DB.log.filter(l=>l.tipo==='prospecto'&&inWeek(l.date,s0)).length;
+    const c2=DB.log.filter(l=>l.tipo==='citaP'&&inWeek(l.date,s0)).length;
+    const cur=inWeek(hoy(),s0);
+    let dot=(p2>=MQ.prospSem&&c2>=MQ.citasSem)?"🟢":(p2>=MQ.prospSem||c2>=MQ.citasSem)?"🟡":(p2+c2>0?"🔴":"·");
+    if(s0>new Date()) dot="·";
+    grid.innerHTML+='<div class="wk'+(cur?" cur":"")+'">S'+(i+1)+'<div class="d">'+dot+'</div></div>';
+  }
+  renderRC(pros,citas,MQ);
+  renderPros();
+  renderAgenda(); renderPlan3(); renderArranque();
+  // NUMEROS
+  const k=calc();
+  document.getElementById('factor').textContent="×"+k.f.toFixed(2);
+  const nx=nextStep(k.ubic,k.nv);
+  document.getElementById('factor-next').textContent = k.nv===0? "Tu primera venta lo activa" : (nx? "Te faltan "+fmt(nx.falta)+" de ubicación para el siguiente nivel" : "¡Nivel máximo del trimestre!");
+  document.getElementById('n-ventas').textContent=k.nv;
+  document.getElementById('n-prima').textContent=fmt(k.prima);
+  document.getElementById('n-ubic').textContent=fmt(k.ubic);
+  document.getElementById('n-ubicpct').textContent=(+DB.cfg.ubic||100)+"%";
+  document.getElementById('n-directa').textContent=fmt(k.directa);
+  document.getElementById('n-bonof').textContent=fmt(k.bonoF);
+  document.getElementById('n-equipo').textContent=fmt(k.equipo);
+  document.getElementById('n-total').textContent=fmt(k.total);
+  [["n1",1],["n2",2],["n3",3]].forEach(([id])=>{});
+  const metas={n1:(+DB.cfg.n1||0)*3, n2:(+DB.cfg.n2||0)*3, n3:(+DB.cfg.n3||0)*3};
+  [["n1"],["n2"],["n3"]].forEach(([id])=>{
+    const m=metas[id], pc=m>0? Math.min(100,k.total/m*100):0;
+    document.getElementById('bar-'+id).style.width=pc+"%";
+    document.getElementById('pct-'+id).textContent=Math.round(pc)+"%";
+    document.getElementById('pct-'+id).className="pct "+(pc>=100?"green":pc>=70?"gold":"");
+  });
+  document.getElementById('ventaslist').innerHTML = DB.ventas.length?
+    DB.ventas.slice().reverse().map(v=>"🏆 "+v.date+" · <b>"+v.rubro+"</b> "+fmt(v.prima)+(v.nombre?" · "+v.nombre:"")).join("<br>") :
+    "<span class='mut'>Aún no registras ventas este trimestre.</span>";
+  // METAS 10X
+  const prima=+DB.cfg.prima||50000, ubp=(+DB.cfg.ubic||100)/100, bateo=+DB.cfg.bateo||10;
+  let html="";
+  [["N1 · MÍNIMO",metas.n1],["N2 · MI META",metas.n2],["N3 · MI IDEAL",metas.n3]].forEach(([lab,m])=>{
+    if(m<=0) return;
+    const n=ventasPara(m);
+    const vSem=n/12, citasSem=vSem*bateo;
+    const f3=factorFor(n*prima*ubp,n);
+    html+='<div class="rowline"><span class="k">'+lab+' <span class="mut">('+fmt(m)+' de INGRESO/trim)</span></span><span class="v">'+n+' ventas · ×'+f3.toFixed(2)+'</span></div>'+
+      '<div class="small mut">📄 Venta acumulada requerida: <b style="color:var(--goldl)">'+fmt(n*prima)+'</b> · '+Math.round(vSem*10)/10+' ventas/sem · bateo '+bateo+':1</div>'+
+      '<div class="small '+(citasSem>10?"amber":"mut")+'" style="margin-bottom:8px">'+
+      (citasSem>10? "🚀 10X: necesitas "+citasSem.toFixed(1)+" citas/sem O mejorar tu bateo a 1 de cada "+(bateo*10/citasSem).toFixed(1) :
+       "✅ Cabe en el ritmo: "+citasSem.toFixed(1)+" citas/semana")+'</div>';
+  });
+  if(metas.n3>0){ const n3v=ventasPara(metas.n3); if(n3v/12*bateo>25) html+='<div class="psug">💡 Tu ideal pide más de 25 citas/semana con tu monto de venta actual. Dos palancas: <b>sube tu prima promedio</b> (prospectos de mercado más arriba: empresarios, profesionistas) o <b>mejora tu bateo</b> con tu guía. Las dos juntas hacen magia.</div>' }
+  document.getElementById('sim10x').innerHTML=html||"<span class='small mut'>Define tus metas arriba.</span>";
+  // YO
+  const c=DB.cfg;
+  const decl=(c.quien||c.arq||c.fin1)?
+    "«Yo peleo por "+(c.quien||"______")+". Soy "+(c.arq||"______")+". Mis fines NO negociables: "+
+    [c.fin1,c.fin2,c.fin3].filter(Boolean).join(" · ")+(c.enf.length? ". Mi bandera: "+c.enf.join(" y "):"")+
+    ". GRATITUD 360 es mi MEDIO para lograrlo.»" : "Completa tus datos y tu declaración se escribe sola.";
+  document.getElementById('declaracion').textContent=decl;
+}
+function saveCfg(src){
+  const c=DB.cfg;
+  if(src==='metas') c.metasOk=true;
+  c.n1=pm(document.getElementById('in-n1').value)||c.n1;
+  c.n2=pm(document.getElementById('in-n2').value)||c.n2;
+  c.n3=pm(document.getElementById('in-n3').value)||c.n3;
+  c.prima=pm(document.getElementById('in-prima').value)||c.prima;
+  c.bateo=+document.getElementById('in-bateo').value||c.bateo||10;
+  c.ubic=+document.getElementById('in-ubic').value||c.ubic;
+  c.quien=document.getElementById('in-quien').value;
+  c.fin1=document.getElementById('in-fin1').value;
+  c.fin2=document.getElementById('in-fin2').value;
+  c.fin3=document.getElementById('in-fin3').value;
+  c.nombre=document.getElementById('in-nombre').value;
+  c.apodo=document.getElementById('in-apodo').value;
+  c.tel=document.getElementById('in-tel').value;
+  c.pin=document.getElementById('in-pin').value.replace(/\D/g,'').slice(0,6);
+  document.getElementById('in-pin').value=c.pin;
+  c.mail=document.getElementById('in-mail').value;
+  c.nac=document.getElementById('in-nac').value;
+  c.civil=document.getElementById('in-civil').value;
+  c.conyN=document.getElementById('in-conyn').value;
+  c.conyNac=document.getElementById('in-conynac').value;
+  c.sueno=document.getElementById('in-sueno').value;
+  c.algomas=document.getElementById('in-algomas').value;
+  // formato de dinero en los campos
+  [["in-n1",c.n1],["in-n2",c.n2],["in-n3",c.n3],["in-prima",c.prima]].forEach(([id,v])=>{ document.getElementById(id).value=fmt(v) });
+  persist(); render(); syncSuave(); renderBkStatus();
+  // empujón único: sin PIN no hay respaldo — no dejar pasar ese hueco
+  if(datosOk() && !c.pin && !window._pinAsk){
+    window._pinAsk=1;
+    setTimeout(()=>msgBox('🛡️ <b>Último paso para blindar tu avance:</b> crea tu contraseña (PIN de 4 a 6 dígitos).<br><br>Sin ella, lo que captures vive solo en este aparato. Con ella, <b>todo se respalda solo en la nube</b> y lo recuperas en cualquier dispositivo.',[["🔑 Crearla ahora (10 seg)",()=>{ const p=document.getElementById('in-pin'); if(p){ p.focus(); p.scrollIntoView({block:'center'}) } }],["Al rato",null]]),400);
+  }
+}
+function initChips(){
+  const slots=['in-fin1','in-fin2','in-fin3'].map(id=>document.getElementById(id).value);
+  document.getElementById('chips-fines').innerHTML=FINES10.map((f,i)=>
+    '<span class="chip'+(slots.includes(f)?" on":"")+'" onclick="togFinChip('+i+')">'+f+'</span>').join('');
+  const ca=document.getElementById('chips-arq');
+  ca.innerHTML=ARQS.map(a=>'<span class="chip'+(DB.cfg.arq===a?" on":"")+'" onclick="setArq(\''+a.replace(/'/g,"\\'")+'\')">'+a+'</span>').join('');
+  const ce=document.getElementById('chips-enf');
+  ce.innerHTML=ENFS.map(e=>'<span class="chip'+(DB.cfg.enf.includes(e)?" on":"")+'" onclick="togEnf(\''+e.replace(/'/g,"\\'")+'\')">'+e+'</span>').join('');
+}
+// ===== Diagnóstico exprés =====
+let dArq=new Set(), dEnf=new Set();
+function openDiag(){
+  dArq=new Set(); dEnf=new Set();
+  document.getElementById('diag-arq').innerHTML=ARQS.map((a,i)=>
+    '<div class="diagitem" id="da'+i+'" onclick="togDA('+i+')"><span class="chk">⬜</span><div><div class="tt">'+a+'</div><div class="dd">«'+ARQD[i]+'»</div></div></div>').join('');
+  document.getElementById('diag-enf').innerHTML=ENFS.map((e,i)=>
+    '<div class="diagitem" id="de'+i+'" onclick="togDE('+i+')"><span class="chk">⬜</span><div><div class="tt">'+e+'</div><div class="dd">'+ENFD[i]+'</div></div></div>').join('');
+  document.getElementById('diagmodal').classList.add('open');
+}
+function closeDiag(){ document.getElementById('diagmodal').classList.remove('open') }
+function togDA(i){ dArq.has(i)?dArq.delete(i):dArq.add(i); const el=document.getElementById('da'+i); el.classList.toggle('on'); el.querySelector('.chk').textContent=dArq.has(i)?"✅":"⬜" }
+function togDE(i){ dEnf.has(i)?dEnf.delete(i):dEnf.add(i); const el=document.getElementById('de'+i); el.classList.toggle('on'); el.querySelector('.chk').textContent=dEnf.has(i)?"✅":"⬜" }
+function applyDiag(){
+  if(dArq.size===0&&dEnf.size===0){ alert("Toca al menos una frase que diga «ese soy yo» — no hay respuestas incorrectas."); return }
+  let msg="🧭 TU RESULTADO:\n\n";
+  if(dArq.size>0){ const a=ARQS[[...dArq][0]]; DB.cfg.arq=a; msg+="Te pareces a: "+a+(dArq.size>1?" (marcaste varios — la última palabra es tuya, cámbialo en tu perfil si otro te queda mejor)":"")+"\n\n" }
+  if(dEnf.size>0){ DB.cfg.enf=[...dEnf].slice(0,2).map(i=>ENFS[i]); msg+="Tus banderas: "+DB.cfg.enf.join(" y ")+(dEnf.size>2?" (las 2 primeras que marcaste)":"")+"\n\n" }
+  msg+="Ese arquetipo es TU historia: apréndete a contarla en 30 segundos. Y tus banderas son las conversaciones que abrirás con más verdad.";
+  persist(); initChips(); render(); closeDiag(); syncSuave(); setTimeout(()=>alert(msg),100);
+}
+// ===== Prospectos: capturar, calificar, elegir =====
+const PCAMPOS=[
+ ["civil","Estado civil",["","Soltero/a","Casado/a","Unión libre","Divorciado/a","Viudo/a"]],
+ ["hijos","Hijos (edades aprox.)",["","Sin hijos","Bebés / pequeños","Escolares","Adolescentes","Universidad","Independientes"]],
+ ["act","Actividad",["","Empleado","Profesionista","Negocio propio / Empresario","Independiente / oficio","Hogar","Jubilado"]],
+ ["edad","Edad aprox.",["","18-25","26-35","36-45","46-55","56-65","65+"]],
+];
+const PCAMPOS2=[["tel","Teléfono","tel","10 dígitos"],["email","Correo electrónico","email","correo@..."],["redes","Redes sociales","text","IG / FB / LinkedIn"],["ref","¿Quién nos conecta? (referido por / conocido de)","text","Ej. cliente Marta, mi primo Luis"]];
+const FINES10=["Darle a mi familia más que lo básico","La educación de mis hijos","Mi retiro digno y sin miedo","Salir de deudas y respirar","Patrimonio propio (casa, ahorro)","La salud y protección de los míos","Grandes momentos: viajes, tiempo juntos","Crecer profesionalmente","Servir: dejar huella en otros","Dormir en paz pase lo que pase"];
+const IDEAS=[
+ ["¿Quién acaba de tener un bebé o se casó?","Que Nada Se Rompa"],
+ ["¿Quién compró casa o trae hipoteca nueva?","Que Nada Se Rompa"],
+ ["¿Quién tiene hijos cerca de la universidad?","Educación y Grandes Momentos"],
+ ["¿Quién tiene un negocio donde TODO depende de él?","La Empresa Sigue Sin Ti"],
+ ["¿Quién tiene socios… y no tiene convenio?","Socios Sin Guerra"],
+ ["¿Quién es pieza clave en su empresa y vive de su sueldo?","Mi Propósito Protegido"],
+ ["¿Quién gana bien pero no ahorra nada?","Dignidad a Futuro"],
+ ["¿Quién ya pasó los 45 sin plan de retiro?","Retiro Sin Miedo"],
+ ["¿Quién tuvo un susto de salud, él o su familia?","Salud Sin Ruina"],
+ ["¿Quién tiene patrimonio y varios herederos?","Legado en Paz"],
+ ["¿A quién le preocupa depender de sus hijos algún día?","Vivir Pleno Sin Dependencia"],
+ ["¿Quién anda en mil cosas, sin plan y sin tiempo?","Tu Vida en Orden 360"],
+];
+const FTABS=[["todos","Todos"],["nuevos","1·Nuevos"],["calif","2·Calificados"],["citas","3·Citas"],["prop","4·Propuesta"],["cierre","5·Cierre"],["seg","6·Seguimiento"],["desc","7·Descartados"]];
+let fSel="todos";
+function etapaKey(p){
+  if(p.estado==="DESCARTADO") return "desc";
+  if(p.estado==="SEGUIMIENTO") return "seg";
+  if(p.estado==="CLIENTE") return "cierre";
+  if(p.estado==="PROPUESTA") return "prop";
+  if(p.estado==="CITA PROPUESTA"||p.estado==="CITA REALIZADA") return "citas";
+  return pScore(p)>0? "calif":"nuevos";
+}
+function setF(k){ fSel=k; render() }
+function importarContactos(){
+  if(!datosOk()){ pideDatos(); return }
+  if(navigator.contacts && navigator.contacts.select){
+    navigator.contacts.select(['name','tel','email'],{multiple:true}).then(cs=>{
+      let n=0;
+      cs.forEach(c=>{
+        const nom=(c.name&&c.name[0])||""; if(!nom) return;
+        if(DB.pros.some(p=>p.nombre===nom)) return;
+        DB.pros.push({id:Date.now()+n,nombre:nom,nota:"importado de mis contactos",stars:[0,0,0,0,0],estado:"NUEVO",date:hoy(),
+          perfil:{tel:(c.tel&&c.tel[0])||"",email:(c.email&&c.email[0])||""},seg:[]});
+        DB.log.push({date:hoy(),tipo:'prospecto'}); n++;
+      });
+      persist(); render();
+      alert("📱 "+n+" contacto(s) importado(s) a tu hoja.\n\nAhora viene lo importante: califícalos con estrellas y decide a quién citar.");
+    }).catch(()=>{});
+  } else {
+    const ios=/iPhone|iPad/i.test(navigator.userAgent);
+    const pasos = ios?
+      '<b>En iPhone</b>, el camino que SÍ funciona hoy:<br><br>1️⃣ Abre <b>Contactos</b> → deja presionado un contacto → <b>Compartir contacto</b> → <b>Guardar en Archivos</b> (se guarda como .vcf). Repite con tus mejores contactos, o para TODOS: entra a <b>icloud.com</b> → Contactos → selecciónalos → ⚙️ → <b>Exportar vCard</b>.<br><br>2️⃣ Vuelve aquí y toca <b>📄 Archivo</b> para subir ese .vcf.' :
+      '<b>En Android</b>, el camino que SÍ funciona hoy:<br><br>1️⃣ Abre tu app de <b>Contactos</b> → menú <b>⋮</b> → <b>Exportar</b> (o "Administrar contactos → Exportar") → se crea un archivo <b>.vcf con TODOS tus contactos</b>.<br><br>2️⃣ Vuelve aquí y toca <b>📄 Archivo</b> para subirlo — entran todos de un jalón.';
+    msgBox('📱 Tu teléfono bloquea la selección directa de contactos en apps abiertas como archivo (funcionará directo cuando publiquemos la app en línea).<br><br>'+pasos+'<br><br><span style="color:var(--mut);font-size:11px">Y siempre tienes 📋 Pegar mi lista: copia nombres de donde sea y pégalos.</span>',
+      [["📄 Subir mi archivo de contactos",()=>document.getElementById('fileimp').click()],["Entendido",null]]);
+  }
+}
+function openIdeas(){
+  document.getElementById('idealist').innerHTML=IDEAS.map((q,i)=>
+    '<div class="diagitem" onclick="ideaPick('+i+')"><span class="chk">💭</span><div><div class="tt">'+q[0]+'</div><div class="dd">Enfoque: '+q[1]+'</div></div></div>').join('');
+  document.getElementById('ideamodal').classList.add('open');
+}
+function closeIdeas(){ document.getElementById('ideamodal').classList.remove('open') }
+function ideaPick(i){
+  closeIdeas();
+  document.getElementById('p-nota').value="Posible enfoque: "+IDEAS[i][1];
+  document.getElementById('p-nombre').focus();
+  window.scrollTo(0,0);
+}
+function togFinChip(i){
+  const f=FINES10[i], c=DB.cfg;
+  const slots=['in-fin1','in-fin2','in-fin3'];
+  const cur=slots.map(id=>document.getElementById(id).value);
+  const idx=cur.indexOf(f);
+  if(idx>=0){ document.getElementById(slots[idx]).value=""; }
+  else{
+    const empty=cur.findIndex(v=>!v);
+    if(empty<0){ alert("Ya tienes 3 fines. Quita uno para cambiar — 3 significa DECIDIR."); return }
+    document.getElementById(slots[empty]).value=f;
+  }
+  saveCfg(); initChips();
+}
+let perfilOpen={};
+function addProspecto(){
+  if(!datosOk()){ pideDatos(); return }
+  const n=document.getElementById('p-nombre').value.trim();
+  if(!n){ alert("Escribe el nombre — con eso basta para empezar."); return }
+  DB.pros.push({id:Date.now(),nombre:n,nota:document.getElementById('p-nota').value.trim(),stars:[0,0,0,0,0],estado:"NUEVO",date:hoy(),perfil:{},seg:[]});
+  DB.log.push({date:hoy(),tipo:'prospecto'});
+  persist();
+  document.getElementById('p-nombre').value=""; document.getElementById('p-nota').value="";
+  render();
+  const MQ=metasReq();
+  if(count('prospecto')===MQ.prospDia) setTimeout(()=>alert("🎉 ¡Prospectos de HOY completos!\n\nAhora califícalo: ¿cuántas estrellas tiene?"),100);
+}
+function pScore(p){ return p.stars.reduce((a,b)=>a+b,0) }
+function pReco(s){
+  if(s>=5) return "⭐5 · CLIENTE INTEGRAL — cita YA: empieza por Vida y su mundo completo";
+  if(s===4) return "⭐4 · Cita YA — GMM · Vida · Autos · Hogar";
+  if(s===3) return "⭐3 · Abre con AUTO + HOGAR";
+  if(s===2) return "⭐2 · Abre con HOGAR o MASCOTAS — puerta chica, confianza grande";
+  return "⭐0-1 · Pídele REFERIDOS (las 6 preguntas de oro) — toda persona conoce a alguien";
+}
+function togPStar(id,i){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  p.stars[i]=p.stars[i]?0:1; persist(); render(); if(prosSel===id) buildProsSheet();
+}
+function pfCount(p){ const pf=p.perfil||{}; return ["civil","hijos","act","edad","tel"].filter(k=>pf[k]).length }
+function togPerfil(id){ perfilOpen[id]=!perfilOpen[id]; render() }
+function setPerfil(id,k,v){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p.perfil=p.perfil||{}; p.perfil[k]=v; persist(); render(); if(prosSel===id) buildProsSheet() }
+function perfilSug(p){
+  const pf=p.perfil||{}; if(!pf.act&&!pf.hijos&&!pf.edad) return "";
+  let arq="", enf=[];
+  if(pf.act==="Negocio propio / Empresario"){ arq="Arquitecto de Legado"; enf.push("La Empresa Sigue Sin Ti","Socios Sin Guerra") }
+  else if(pf.act==="Empleado"){ arq="Talento Clave Corporativo"; enf.push("Mi Propósito Protegido") }
+  else if(pf.act==="Profesionista"||pf.act==="Independiente / oficio"){ arq="Estratega Financiero"; enf.push("Tu Vida en Orden 360") }
+  else if(pf.act==="Jubilado"){ arq="Patrimonial en Transición"; enf.push("Legado en Paz","Vivir Pleno Sin Dependencia") }
+  else if(pf.act==="Hogar"){ arq="Familia Aspiracional"; enf.push("Que Nada Se Rompa") }
+  if(["Bebés / pequeños","Escolares"].includes(pf.hijos)){ if(!arq)arq="Protector Responsable"; enf.unshift("Que Nada Se Rompa","Educación y Grandes Momentos") }
+  if(["Adolescentes","Universidad"].includes(pf.hijos)){ enf.unshift("Educación y Grandes Momentos — la universidad ya está cerca") }
+  if(["46-55","56-65"].includes(pf.edad)){ enf.push("Retiro Sin Miedo") }
+  if(pf.edad==="65+"){ enf.push("Vivir Pleno Sin Dependencia") }
+  if(!arq) arq="Protector Responsable";
+  enf=[...new Set(enf)].slice(0,2);
+  return "🧭 <b>Su perfil sugiere:</b> "+arq+" — abre la conversación con <b>"+enf.join("</b> o <b>")+"</b>.";
+}
+let prosSel=null;
+function openPros(id){ prosSel=id; buildProsSheet(); document.getElementById('prosmodal').classList.add('open') }
+function closePros(){ prosSel=null; document.getElementById('prosmodal').classList.remove('open') }
+function estLabel(e){ return e==="NUEVO"?["por citar",""]:e==="CITA PROPUESTA"?["📅 pedida","a"]:e==="CITA REALIZADA"?["✓ lograda","g"]:e==="PROPUESTA"?["📄 propuesta","a"]:e==="CLIENTE"?["🏆 cierre","g"]:e==="SEGUIMIENTO"?["🔁 seguimiento","g"]:["descartado",""] }
+function etapaCRM(p){
+  if(p.estado==="DESCARTADO") return "7 · Descartado";
+  if(p.estado==="SEGUIMIENTO") return "6 · Seguimiento";
+  if(p.estado==="CLIENTE") return "5 · Cierre 🏆";
+  if(p.estado==="PROPUESTA") return "4 · Propuesta";
+  if(p.estado==="CITA REALIZADA") return "3 · Cita hecha";
+  if(p.estado==="CITA PROPUESTA") return "3 · Cita pedida";
+  return pScore(p)>0? "2 · Calificado" : "1 · Nuevo";
+}
+function segPasar(id){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p.estado="SEGUIMIENTO"; persist(); render(); buildProsSheet(); }
+const ETORDEN=["NUEVO","CITA PROPUESTA","CITA REALIZADA","PROPUESTA","CLIENTE","SEGUIMIENTO"];
+const ETCHIPS=[["NUEVO","1·Nuevo"],["CITA PROPUESTA","3·Cita pedida"],["CITA REALIZADA","3·Cita hecha"],["PROPUESTA","4·Propuesta"],["CLIENTE","5·Cierre 🏆"],["SEGUIMIENTO","6·Seguim."]];
+function setEtapa(id,est){
+  const p=DB.pros.find(x=>x.id===id); if(!p||p.estado===est) return;
+  if(est==="CLIENTE"){ ventaDesde(id); return; } // el cierre se registra como venta (para que tus números cuadren)
+  const oi=ETORDEN.indexOf(p.estado), ni=ETORDEN.indexOf(est);
+  if(ni>oi){ // avanzó: la actividad se suma sola a sus números del día
+    if(oi<1&&ni>=1) DB.log.push({date:hoy(),tipo:'citaP'});
+    if(oi<2&&ni>=2) DB.log.push({date:hoy(),tipo:'citaR'});
+  }
+  p.estado=est;
+  if(est==="CITA REALIZADA") p.cita=p.cita||{fecha:hoy(),hora:"10:00",con:"Gerardo (mi guía)"};
+  persist(); render(); buildProsSheet();
+}
+function nxtAccion(p){ // [texto, función] del siguiente paso natural de cada etapa
+  if(p.estado==="NUEVO") return ["📅 Pedir cita","pedirCita"];
+  if(p.estado==="CITA PROPUESTA") return ["✓ ¡Se logró!","citaLograda"];
+  if(p.estado==="CITA REALIZADA") return ["📄 Propuesta","propuestaHecha"];
+  if(p.estado==="PROPUESTA") return ["🏆 Venta","ventaDesde"];
+  if(p.estado==="CLIENTE") return ["🔁 Seguim.","segPasar"];
+  return null;
+}
+function addSeg(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  const t=document.getElementById('seg-txt').value.trim(); if(!t){ alert("Escribe qué pasó — dos líneas bastan."); return }
+  p.seg=p.seg||[]; p.seg.push({f:hoy(),txt:t}); persist(); buildProsSheet();
+}
+function setNext(id,k,v){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p[k]=v; persist(); renderPros(); }
+function setComent(id,v){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p.coment=v; persist(); }
+function setCita(id,k,v){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p.cita=p.cita||{}; p.cita[k]=v; persist(); render(); } // persist ya sube la cita sola a la base
+function avisarGerardo(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  const c=p.cita||{}, yo=DB.cfg.nombre||"";
+  const txt="Hola Gerardo 👋 Soy "+yo+" (GRATITUD 360). Agendé cita con mi prospecto "+p.nombre+" para el "+(c.fecha||hoy())+" a las "+(c.hora||"10:00")+". Atiende: "+(c.con||"Gerardo (mi guía)")+". ¿Me confirmas si puedes en ese horario, por favor? 🙏";
+  syncDB("prospectos",prospectosData());
+  openURL("https://wa.me/524498041889?text="+encodeURIComponent(txt));
+}
+function gcalCita(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p||!p.cita) return "#";
+  const c=p.cita, f=(c.fecha||hoy()).replace(/-/g,""), [H,M]=(c.hora||"10:00").split(':').map(Number);
+  const pd=n=>String(n).padStart(2,'0'); const end=H*60+M+60;
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("🤝 Cita GRATITUD 360: "+p.nombre)+
+    "&dates="+f+"T"+pd(H)+pd(M)+"00/"+f+"T"+pd(Math.floor(end/60)%24)+pd(end%60)+"00"+
+    "&details="+encodeURIComponent("Atiende: "+(c.con||"")+"\nNotas: "+(p.nota||"")+"\nPerfil sugiere: "+perfilSug(p).replace(/<[^>]*>/g,""));
+}
+function propuestaHecha(id){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p.estado="PROPUESTA"; persist(); render(); buildProsSheet(); }
+function pedirCita(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  const marcar=()=>{
+    p.estado="CITA PROPUESTA"; DB.log.push({date:hoy(),tipo:'citaP'}); persist(); render(); buildProsSheet();
+    const MQ=metasReq(); if(count('citaP')===MQ.citaDia) setTimeout(()=>alert("🎉 ¡Lograste tus "+MQ.citaDia+" citas de HOY!\n\n"+frase()),100);
+  };
+  const elegir=()=>{
+    const pf=p.perfil||{}, tel=String(pf.tel||"").replace(/\D/g,'');
+    const P=p.nombre.split(" ")[0], yo=(DB.cfg.apodo||DB.cfg.nombre||"").split(" ")[0];
+    const txt="¡Hola "+P+"! ¿Cómo estás? 😊 Soy "+yo+". Ando en un proyecto que me tiene muy entusiasmado — se trata de proteger lo que más queremos — y me acordé de ti. ¿Me regalas 20 minutos con un café esta semana? Tú dime el día y la hora, y yo me acomodo.";
+    const btns=[];
+    if(tel){
+      btns.push(["💬 Pedírsela por WhatsApp (mensaje listo)",()=>{ openURL("https://wa.me/52"+tel+"?text="+encodeURIComponent(txt)); marcar(); }]);
+      btns.push(["📞 Llamarle ahora mismo",()=>{ openURL("tel:+52"+tel); marcar(); }]);
+    }
+    btns.push(["✓ Ya se la pedí (en persona u otro medio)",marcar]);
+    btns.push(["Todavía no",null]);
+    msgBox('<b>📅 Pídele la cita a '+P+' AHORA</b> — este momento vale oro.<br><br>'+
+      (tel? 'Mensaje sugerido (puedes editarlo antes de enviar):<br><span style="color:var(--mut);font-size:12px">“'+txt+'”</span>'
+          : '<span style="color:var(--mut);font-size:12px">💡 Si guardas su teléfono en la ficha, aquí mismo te abro WhatsApp con el mensaje listo para enviar.</span>'), btns);
+  };
+  if(pfCount(p)<3) ask("Aún no perfilas a "+p.nombre+" ("+pfCount(p)+"/5).\n\nCon el perfil completo sabrás CÓMO abrir la conversación.\n\n¿Pedir la cita de todos modos?",elegir);
+  else elegir();
+}
+function citaLograda(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  p.estado="CITA REALIZADA"; p.cita=p.cita||{fecha:hoy(),hora:"10:00",con:"Gerardo (mi guía)"};
+  DB.log.push({date:hoy(),tipo:'citaR'}); persist(); render(); buildProsSheet();
+  setTimeout(()=>alert("✓ ¡Cita lograda con "+p.nombre+"!\n\nAgéndala abajo: fecha, hora y quién la atiende — y aparecerá en tu día."),100);
+}
+function ventaDesde(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  document.getElementById('v-nombre').value=p.nombre; closePros(); openVenta();
+}
+function descartarP(id){
+  const p=DB.pros.find(x=>x.id===id); if(!p) return;
+  ask("¿Descartar a "+p.nombre+"? (antes pídele referidos: las 6 preguntas de oro)",()=>{ p.estado="DESCARTADO"; persist(); closePros(); render(); });
+}
+function buildProsSheet(){
+  const p=DB.pros.find(x=>x.id===prosSel); if(!p) return;
+  const s=pScore(p), pf=p.perfil||{}, [el,ec]=estLabel(p.estado);
+  let accion="";
+  if(p.estado==="NUEVO") accion='<button class="sellbtn" onclick="pedirCita('+p.id+')">📅 Pedirle la cita</button>';
+  else if(p.estado==="CITA PROPUESTA") accion='<button class="sellbtn" onclick="citaLograda('+p.id+')">✓ ¡La cita se logró!</button><div class="small mut" style="text-align:center;margin-top:6px">¿Aún no cae? Sigue: el promedio es 10 propuestas por 1 lograda.</div>';
+  else if(p.estado==="CITA REALIZADA") accion='<button class="sellbtn" onclick="propuestaHecha('+p.id+')">📄 Le presenté la propuesta</button><button class="abtn" style="width:100%;margin-top:8px" onclick="ventaDesde('+p.id+')">🏆 Registrar la venta</button>';
+  else if(p.estado==="PROPUESTA") accion='<button class="sellbtn" onclick="ventaDesde('+p.id+')">🏆 Registrar la venta</button>';
+  else if(p.estado==="CLIENTE") accion='<button class="sellbtn" onclick="segPasar('+p.id+')">🔁 Pasar a SEGUIMIENTO (renovación + referidos)</button>';
+  else if(p.estado==="SEGUIMIENTO") accion='<div class="psug">🔁 En seguimiento: cuida su renovación, pregunta cómo va — y pídele referidos (las 6 preguntas de oro). Un cliente feliz es tu mejor lista.</div>';
+  let citaHtml="";
+  if(["CITA REALIZADA","PROPUESTA"].includes(p.estado)){
+    const c=p.cita||{}, con=c.con||"Gerardo (mi guía)", L=DB.cfg.links||{};
+    let calBtns="";
+    if(con!=="Alguien de Segurzen"){
+      calBtns += L.agenda? '<button class="abtn" style="width:100%;margin-top:8px" onclick="openURL(\''+L.agenda+'\')">📅 Reservar en la agenda de Gerardo (horario real disponible)</button>'
+        : '<div class="small mut" style="margin-top:6px">💡 Cuando Gerardo cargue su link de agenda (YO → materiales), reservarás directo en su horario disponible.</div>';
+    } else {
+      calBtns += L.agendaSeg? '<button class="abtn" style="width:100%;margin-top:8px" onclick="openURL(\''+L.agendaSeg+'\')">📅 Reservar en la agenda Segurzen</button>'
+        : '<div class="small mut" style="margin-top:6px">💡 Pide a tu guía el link de la agenda Segurzen para reservar en horario real.</div>';
+    }
+    calBtns += '<button class="abtn" style="width:100%;margin-top:8px" onclick="openURL(gcalCita('+p.id+'))">➕ Esta cita a MI calendario (con recordatorio)</button>';
+    if(con!=="Alguien de Segurzen") calBtns += '<button class="abtn" style="width:100%;margin-top:8px;border-color:var(--gold);color:var(--goldl)" onclick="avisarGerardo('+p.id+')">📲 Avisarle a Gerardo de esta cita (WhatsApp)</button><div class="small mut" style="margin-top:4px">Regla de oro: si la cita es con Gerardo, avísale por WhatsApp y espera su ✓ antes de confirmarle al prospecto.</div>';
+    citaHtml='<h4 class="sec">📅 Datos de la cita — aparecerá en tu día</h4><div class="perfil" style="margin-top:2px">'+
+      '<label>Fecha</label><input type="date" value="'+(c.fecha||hoy())+'" onchange="setCita('+p.id+',\'fecha\',this.value)">'+
+      '<label>Hora</label><input type="time" value="'+(c.hora||"10:00")+'" onchange="setCita('+p.id+',\'hora\',this.value)">'+
+      '<label>¿Quién atiende la cita?</label><select onchange="setCita('+p.id+',\'con\',this.value); buildProsSheet()">'+
+      ["Gerardo (mi guía)","Yo acompaño a Gerardo","Alguien de Segurzen"].map(o=>'<option'+(con===o?" selected":"")+'>'+o+'</option>').join('')+'</select>'+
+      calBtns+'</div>';
+  }
+  const sug=perfilSug(p);
+  document.getElementById('prossheet').innerHTML=
+    '<div style="display:flex;justify-content:space-between;align-items:center"><h3>'+p.nombre+'</h3><span class="est '+ec+'" style="font-size:11px;font-weight:800;padding:4px 9px;border-radius:6px;background:var(--navy3)">'+el+'</span></div>'+
+    '<div class="small mut">'+(p.nota?p.nota+' · ':'')+'en mi hoja desde '+p.date+' · etapa '+etapaCRM(p)+'</div>'+
+    '<h4 class="sec">Su etapa — tócala y cambia, así de fácil</h4>'+
+    '<div class="etsteps">'+ETCHIPS.map(([est,lab])=>'<span class="etch'+(p.estado===est?" on":"")+'" onclick="setEtapa('+p.id+',\''+est+'\')">'+lab+'</span>').join('')+'</div>'+
+    '<div class="small mut" style="margin-bottom:4px">'+(p.estado==="DESCARTADO"?'Estaba descartado — toca una etapa para recuperarlo.':'2·Calificado se prende solo con sus estrellas ⭐. ¿Te equivocaste? Toca la etapa anterior y listo.')+'</div>'+
+    citaHtml+
+    '<h4 class="sec">Sus estrellas ('+s+'/5) — toca las que cumpla</h4>'+
+    '<div class="stars">'+ESTRELLAS.map((e,i)=>'<span class="star'+(p.stars[i]?' on':'')+'" onclick="togPStar('+p.id+','+i+')">'+e+'</span>').join('')+'</div>'+
+    '<div class="reco">'+pReco(s)+'</div>'+
+    '<h4 class="sec">Su perfil ('+pfCount(p)+'/5) y sus datos</h4>'+
+    '<div class="perfil" style="margin-top:2px">'+PCAMPOS.map(([k,lab,ops])=>
+      '<label>'+lab+'</label><select onchange="setPerfil('+p.id+',\''+k+'\',this.value)">'+
+      ops.map(o=>'<option'+(pf[k]===o?" selected":"")+'>'+o+'</option>').join('')+'</select>').join('')+
+      PCAMPOS2.map(([k,lab,tp,ph])=>'<label>'+lab+'</label><input type="'+tp+'" value="'+((pf[k]||"").replace(/"/g,'&quot;'))+'" placeholder="'+ph+'" onchange="setPerfil('+p.id+',\''+k+'\',this.value)">').join('')+
+      '<label>Comentarios (lo que sé de él/ella: gustos, historia, contexto)</label><textarea rows="2" onchange="setComent('+p.id+',this.value)">'+(p.coment||"")+'</textarea></div>'+
+    (sug?'<div class="psug">'+sug+'</div>':'')+
+    accion+
+    '<h4 class="sec">📌 Seguimiento — ¿qué pasó y cuál es el nuevo paso?</h4>'+
+    '<div class="perfil" style="margin-top:2px">'+
+    '<label>MI SIGUIENTE PASO con '+p.nombre.split(" ")[0]+'</label><input type="text" value="'+((p.nextTxt||"").replace(/"/g,'&quot;'))+'" placeholder="Ej. llamarle el jueves para confirmar" onchange="setNext('+p.id+',\'nextTxt\',this.value)">'+
+    '<label>¿Para cuándo?</label><input type="date" value="'+(p.nextFecha||"")+'" onchange="setNext('+p.id+',\'nextFecha\',this.value)">'+
+    '<label>Bitácora — ¿qué pasó hoy con él/ella?</label><input type="text" id="seg-txt" placeholder="Ej. cita hecha: le interesó GMM, pidió ver números">'+
+    '<button class="abtn" style="width:100%;margin-top:8px" onclick="addSeg('+p.id+')">➕ Anotar en su historia</button>'+
+    ((p.seg&&p.seg.length)? p.seg.slice().reverse().map(s2=>'<div class="segitem"><b>'+s2.f.slice(5)+'</b> · '+s2.txt+'</div>').join(''):'')+'</div>'+
+    '<div class="pacts" style="margin-top:10px">'+
+    (pf.tel?'<button onclick="openURL(\'https://wa.me/52'+String(pf.tel).replace(/\D/g,'')+'\')">💬 WhatsApp</button>':'')+
+    '<button onclick="descartarP('+p.id+')">🗑 Descartar</button>'+
+    '<button onclick="closePros()">Cerrar</button></div>';
+}
+function renderPros(){
+  const act=DB.pros.filter(p=>!["DESCARTADO","CLIENTE","SEGUIMIENTO"].includes(p.estado));
+  document.getElementById('f-tot').textContent=act.length;
+  document.getElementById('f-ped').textContent=act.filter(p=>p.estado==="CITA PROPUESTA").length;
+  document.getElementById('f-log').textContent=DB.pros.filter(p=>p.estado==="CITA REALIZADA").length;
+  document.getElementById('f-ven').textContent=DB.pros.filter(p=>["CLIENTE","SEGUIMIENTO"].includes(p.estado)).length;
+  document.getElementById('ftabs').innerHTML=FTABS.map(([k,lab])=>{
+    const n=k==="todos"? DB.pros.filter(p=>p.estado!=="DESCARTADO").length : DB.pros.filter(p=>etapaKey(p)===k).length;
+    return '<span class="fchip'+(fSel===k?" on":"")+'" onclick="setF(\''+k+'\')">'+lab+(n?" ("+n+")":"")+'</span>';
+  }).join('');
+  let lista=DB.pros.filter(p=> fSel==="todos"? p.estado!=="DESCARTADO" : etapaKey(p)===fSel);
+  lista=lista.sort((a,b)=>pScore(b)-pScore(a));
+  document.getElementById('proslist').innerHTML = lista.length? lista.map(p=>{
+    const s=pScore(p), [el,ec]=estLabel(p.estado);
+    const next=p.nextTxt? '<span class="sub" style="color:var(--goldl)">📌 '+p.nextTxt.slice(0,34)+(p.nextFecha?' · '+p.nextFecha.slice(5):'')+'</span>':'';
+    const nx=nxtAccion(p);
+    const nxBtn=nx? '<button class="nxtb" onclick="event.stopPropagation();'+nx[1]+'('+p.id+')">'+nx[0]+'</button>' : '<span class="chev">›</span>';
+    return '<div class="prow" onclick="openPros('+p.id+')">'+
+      '<span class="pn'+(s>=4?' gold':'')+'">'+p.nombre+'<span class="sub">'+(p.nota?p.nota.slice(0,32)+' · ':'')+'alta '+p.date.slice(5)+'</span>'+next+'</span>'+
+      '<span class="st '+(s>=4?'gold':'mut')+'">'+"★".repeat(s)+"☆".repeat(5-s)+'</span>'+
+      '<span class="est '+ec+'">'+etapaCRM(p)+'</span>'+nxBtn+'</div>';
+  }).join('') : '<div class="small mut">'+(fSel==="todos"?"Tu hoja está vacía. Usa 💡 si no sabes en quién pensar — o 📱 importa tus contactos.":"Nadie en esta etapa todavía.")+'</div>';
+}
+// ===== Agenda de poder + recordatorios =====
+function hm(){ const d=new Date(); return String(d.getHours()).padStart(2,'0')+":"+String(d.getMinutes()).padStart(2,'0') }
+function blockStatus(b){
+  const now=hm();
+  const [H,M]=b.h.split(':').map(Number); const start=H*60+M, cur=(new Date().getHours())*60+new Date().getMinutes();
+  if(cur>=start&&cur<start+45) return "now";
+  if(cur<start) return "next";
+  return "past";
+}
+function addTarea(){
+  const f=document.getElementById('t-fecha').value||hoy(), h=document.getElementById('t-hora').value||"10:00", t=document.getElementById('t-txt').value.trim();
+  if(!t){ alert("Escribe la acción o tarea."); return }
+  DB.tareas.push({id:Date.now(),fecha:f,h,t}); persist();
+  document.getElementById('t-txt').value="";
+  renderTareas(); renderAgenda();
+}
+function delTarea(id){ DB.tareas=DB.tareas.filter(x=>x.id!==id); persist(); renderTareas(); renderAgenda(); }
+function renderTareas(){
+  const el=document.getElementById('tarealist'); if(!el) return;
+  const fut=DB.tareas.filter(x=>x.fecha>=hoy()).sort((a,b)=>(a.fecha+a.h).localeCompare(b.fecha+b.h));
+  el.innerHTML=fut.map(x=>'<div class="rowline"><span class="k small">'+x.fecha.slice(5)+' '+x.h+' · '+x.t+'</span><span style="white-space:nowrap"><button class="undo" style="color:var(--gold)" onclick="openURL(gcalTarea('+x.id+'))" title="A mi calendario con recordatorio">📅+aviso</button> <button class="undo" onclick="delTarea('+x.id+')">🗑</button></span></div>').join('');
+}
+let agOff=0, selDia=hoy();
+function agSem(d){
+  agOff+=d;
+  const base=weekStart(new Date()); base.setDate(base.getDate()+agOff*7);
+  const wd=(new Date(selDia+"T12:00:00").getDay()+6)%7;
+  const n=new Date(base); n.setDate(n.getDate()+wd); selDia=iso(n);
+  render();
+}
+function selDay(d){ selDia=d; render(); }
+function tareaEnDia(){ openAgenda(); setTimeout(()=>{ const f=document.getElementById('t-fecha'); if(f) f.value=selDia; },100); }
+function itemsDe(fecha){
+  const items=[];
+  const wd=(new Date(fecha+"T12:00:00").getDay()+6)%7; // 0=lunes
+  if(wd<5) (DB.cfg.blocks||[]).forEach(b=>items.push({h:b.h,t:b.t,tipo:"b"}));
+  DB.tareas.filter(x=>x.fecha===fecha).forEach(x=>items.push({h:x.h,t:"📝 "+x.t,tipo:"t"}));
+  DB.pros.filter(p=>p.cita&&p.cita.fecha===fecha&&p.estado!=="DESCARTADO").forEach(p=>
+    items.push({h:p.cita.hora||"10:00",t:"🤝 CITA: "+p.nombre+" · atiende "+(p.cita.con||"Gerardo (mi guía)"),tipo:"c"}));
+  return items.sort((a,b)=>a.h.localeCompare(b.h));
+}
+function renderAgenda(){
+  const base=weekStart(new Date()); base.setDate(base.getDate()+agOff*7);
+  const meses=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  const letras=["L","M","M","J","V","S","D"];
+  let chips="";
+  for(let i=0;i<7;i++){
+    const d=new Date(base); d.setDate(d.getDate()+i); const di=iso(d);
+    const nc=DB.pros.filter(p=>p.cita&&p.cita.fecha===di&&p.estado!=="DESCARTADO").length;
+    const nt=DB.tareas.filter(x=>x.fecha===di).length;
+    const dots=(nc?"🤝":"")+(nt?"📝":"");
+    chips+='<div class="dia'+(selDia===di?" on":"")+(di===hoy()?" hoy0":"")+'" onclick="selDay(\''+di+'\')">'+
+      '<div class="dl">'+letras[i]+'</div><div class="dn">'+d.getDate()+'</div><div class="dd">'+dots+'</div></div>';
+  }
+  const fin=new Date(base); fin.setDate(fin.getDate()+6);
+  document.getElementById('agweek').innerHTML=
+    '<div class="semlab">'+(agOff===0?"Esta semana":base.getDate()+" "+meses[base.getMonth()]+" – "+fin.getDate()+" "+meses[fin.getMonth()])+'</div>'+
+    '<div class="agsem"><button class="nav" onclick="agSem(-1)">‹</button>'+chips+'<button class="nav" onclick="agSem(1)">›</button></div>';
+  const items=itemsDe(selDia), esHoy=selDia===hoy();
+  let nextShown=false;
+  document.getElementById('agendalist').innerHTML= items.length? items.map(it=>{
+    let badge="";
+    if(esHoy){
+      const st=blockStatus(it);
+      if(st==="now") badge='<span class="sem g">▶ AHORA</span>';
+      else if(st==="next"&&!nextShown){ badge='<span class="sem a">próximo</span>'; nextShown=true }
+      else if(st==="past") badge='<span class="mut small">✓</span>';
+    }
+    return '<div class="rowline"><span class="k'+(it.tipo==="c"?' gold':'')+'"><b>'+it.h+'</b> · '+it.t+'</span><span>'+badge+'</span></div>';
+  }).join('') : '<div class="small mut">Día libre — sin actividades programadas.</div>';
+  const pend=pendDe(selDia);
+  if(pend.length) document.getElementById('agendalist').innerHTML+=
+    '<div class="small" style="margin:8px 0 2px;color:var(--goldl)">📌 Pendientes de este día — toca para abrir:</div>'+
+    pend.map(p=>'<div class="rowline" style="cursor:pointer" onclick="openPros('+p.id+')"><span class="k">📌 '+p.nextTxt+' · <b>'+p.nombre+'</b></span><span class="chev">›</span></div>').join('');
+  const nb=document.getElementById('notifbtn');
+  if(nb&&typeof Notification!=="undefined"&&Notification.permission==="granted"){ nb.textContent="🔔 Activos"; nb.style.opacity=.7 }
+}
+function openAgenda(){
+  const bs=DB.cfg.blocks;
+  document.getElementById('agedit').innerHTML=bs.map((b,i)=>
+    '<label>Actividad '+(i+1)+(b.fix?' · OBLIGATORIA (mueve la hora si lo necesitas)':'')+'</label>'+
+    '<div style="display:flex;gap:8px"><input type="time" value="'+b.h+'" style="max-width:110px" onchange="setBlock('+i+',\'h\',this.value)">'+
+    '<input type="text" value="'+b.t.replace(/"/g,'&quot;')+'"'+(b.fix?' disabled style="opacity:.7"':'')+' onchange="setBlock('+i+',\'t\',this.value)"></div>'+
+    '<a href="'+gcalLink(b)+'" target="_blank" rel="noopener" class="undo" style="color:var(--gold)">➕ a mi calendario (lun-vie, con recordatorio)</a>'
+  ).join('');
+  document.getElementById('t-fecha').value=hoy();
+  renderTareas();
+  document.getElementById('agmodal').classList.add('open');
+}
+// ===== Cierre del día (Franklin) =====
+function openCierre(){
+  const pr=count('prospecto'), cp=count('citaP'), cr=count('citaR'), vd=DB.ventas.filter(v=>v.date===hoy()).length;
+  document.getElementById('cie-resumen').innerHTML=
+    '<div class="rowline"><span class="k">Prospectos nuevos</span><span class="v">'+pr+'</span></div>'+
+    '<div class="rowline"><span class="k">Citas propuestas</span><span class="v">'+cp+'</span></div>'+
+    '<div class="rowline"><span class="k">Citas realizadas</span><span class="v">'+cr+'</span></div>'+
+    '<div class="rowline"><span class="k">Ventas</span><span class="v gold">'+vd+'</span></div>';
+  const tm=iso(new Date(Date.now()+864e5)), pl=DB.plan[tm]||{};
+  document.getElementById('cie-apr').value=pl.apr||"";
+  document.getElementById('cie-p1').value=pl.p1||""; document.getElementById('cie-p2').value=pl.p2||""; document.getElementById('cie-p3').value=pl.p3||"";
+  renderManana();
+  document.getElementById('ciemodal').classList.add('open');
+}
+// ===== Mañana: repaso de citas, pendientes y preparación =====
+function pendDe(fecha){ return DB.pros.filter(p=>p.nextTxt&&p.nextFecha===fecha&&p.estado!=="DESCARTADO"); }
+const PREP=[["conf","📞 Le confirmé la cita"],["mat","📄 Mi material / propuesta está listo"],["lugar","📍 Sé dónde es y cómo llegar a tiempo"],["perfil","🧭 Repasé su perfil y sé cómo abrir la plática"]];
+function togPrep(id,k){ const p=DB.pros.find(x=>x.id===id); if(!p) return; p.prep=p.prep||{}; p.prep[k]=p.prep[k]?0:1; persist(); renderManana(); }
+function renderManana(){
+  const el=document.getElementById('cie-manana'); if(!el) return;
+  const tm=iso(new Date(Date.now()+864e5));
+  const citas=DB.pros.filter(p=>p.cita&&p.cita.fecha===tm&&p.estado!=="DESCARTADO").sort((a,b)=>(a.cita.hora||"").localeCompare(b.cita.hora||""));
+  const tareas=DB.tareas.filter(x=>x.fecha===tm).sort((a,b)=>a.h.localeCompare(b.h));
+  const pend=pendDe(tm);
+  let h="";
+  if(citas.length){
+    h+=citas.map(p=>{ const pr=p.prep||{}; const done=PREP.filter(([k])=>pr[k]).length;
+      return '<div style="border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-top:8px">'+
+      '<b style="color:var(--goldl)">🤝 '+(p.cita.hora||"")+' · '+p.nombre+'</b> <span class="small mut">· atiende '+(p.cita.con||"Gerardo (mi guía)")+' · preparación '+done+'/4</span>'+
+      PREP.map(([k,lab])=>'<div class="rowline" style="cursor:pointer" onclick="togPrep('+p.id+',\''+k+'\')"><span class="k small">'+(pr[k]?"✅":"⬜")+' '+lab+'</span></div>').join('')+
+      (done===4?'<div class="small" style="color:var(--green);margin-top:4px">✨ Cita blindada. Mañana solo llegas a brillar.</div>':'<div class="small mut" style="margin-top:4px">Una cita preparada vale por dos — palomea lo que ya tengas.</div>')+
+      '</div>'; }).join('');
+  }
+  if(tareas.length) h+='<div class="small" style="margin-top:8px">📝 <b>Tareas:</b> '+tareas.map(x=>x.h+' '+x.t).join(' · ')+'</div>';
+  if(pend.length) h+='<div class="small" style="margin-top:4px">📌 <b>Pendientes:</b> '+pend.map(p=>p.nextTxt+' ('+p.nombre.split(" ")[0]+')').join(' · ')+'</div>';
+  if(!h) h='<div class="small mut">Mañana no tienes citas ni pendientes anotados — perfecto para llenarlo de prospección y nuevas citas.</div>';
+  else h+='<button class="abtn" style="width:100%;margin-top:10px" onclick="planWA()">📲 Mandarme mi plan de mañana por WhatsApp</button>';
+  el.innerHTML=h;
+}
+function planWA(){
+  const tm=iso(new Date(Date.now()+864e5));
+  const citas=DB.pros.filter(p=>p.cita&&p.cita.fecha===tm&&p.estado!=="DESCARTADO").map(p=>"🤝 "+(p.cita.hora||"")+" — "+p.nombre+" (atiende "+(p.cita.con||"Gerardo")+")");
+  const tareas=DB.tareas.filter(x=>x.fecha===tm).map(x=>"📝 "+x.h+" — "+x.t);
+  const pend=pendDe(tm).map(p=>"📌 "+p.nextTxt+" · "+p.nombre);
+  const pl=DB.plan[tm]||{};
+  const tres=[pl.p1,pl.p2,pl.p3].filter(Boolean).map((p,i)=>(i+1)+". "+p);
+  const p1=document.getElementById('cie-p1'), pri=[p1&&p1.value,document.getElementById('cie-p2')&&document.getElementById('cie-p2').value,document.getElementById('cie-p3')&&document.getElementById('cie-p3').value].filter(Boolean).map((p,i)=>(i+1)+". "+p);
+  const usar=pri.length?pri:tres;
+  const txt="🌤 MI PLAN DE MAÑANA — GRATITUD 360\n"+[...citas,...tareas,...pend].join("\n")+(usar.length?("\n\n🎯 Mis 3 de mañana:\n"+usar.join("\n")):"")+"\n\n"+frase();
+  const tel=String(DB.cfg.tel||"").replace(/\D/g,'');
+  openURL("https://wa.me/52"+tel+"?text="+encodeURIComponent(txt));
+}
+function gcalTarea(id){
+  const x=DB.tareas.find(t=>t.id===id); if(!x) return "#";
+  const f=(x.fecha||hoy()).replace(/-/g,""), [H,M]=(x.h||"10:00").split(':').map(Number);
+  const p=n=>String(n).padStart(2,'0'); const end=H*60+M+30;
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("📝 "+x.t+" · GRATITUD 360")+
+    "&dates="+f+"T"+p(H)+p(M)+"00/"+f+"T"+p(Math.floor(end/60)%24)+p(end%60)+"00"+
+    "&details="+encodeURIComponent("Pendiente GRATITUD 360 — hecho a tiempo se disfruta doble.");
+}
+function closeCierre(){ document.getElementById('ciemodal').classList.remove('open') }
+function saveCierre(){
+  const tm=iso(new Date(Date.now()+864e5));
+  DB.plan[tm]={apr:document.getElementById('cie-apr').value.trim(),
+    p1:document.getElementById('cie-p1').value.trim(),p2:document.getElementById('cie-p2').value.trim(),p3:document.getElementById('cie-p3').value.trim(),chk:[0,0,0]};
+  persist(); closeCierre(); render(); syncTodo();
+  const nc=DB.pros.filter(p=>p.cita&&p.cita.fecha===tm&&p.estado!=="DESCARTADO").length;
+  setTimeout(()=>alert("🌙 Día cerrado y mañana planeado.\n\n"+(nc?("Mañana tienes "+nc+" cita"+(nc>1?"s":"")+" — ya la"+(nc>1?"s":"")+" repasaste, vas preparado. "):"")+frase()+"\n\n"+conNombre("Descansa")+": ya ganaste dos veces."),100);
+}
+function togPlan(i){ const pl=DB.plan[hoy()]; if(!pl) return; pl.chk=pl.chk||[0,0,0]; pl.chk[i]=pl.chk[i]?0:1; persist(); render(); }
+function renderPlan3(){
+  const pl=DB.plan[hoy()], card=document.getElementById('plan3card');
+  if(!pl||!(pl.p1||pl.p2||pl.p3)){ card.style.display="none"; return }
+  card.style.display="block";
+  pl.chk=pl.chk||[0,0,0];
+  document.getElementById('plan3list').innerHTML=[pl.p1,pl.p2,pl.p3].map((p,i)=>p?
+    '<div class="rowline" style="cursor:pointer" onclick="togPlan('+i+')"><span class="k">'+(pl.chk[i]?"✅ <s style='color:var(--mut)'>":"⬜ ")+(i+1)+". "+p+(pl.chk[i]?"</s>":"")+'</span></div>':"").join('');
+}
+// ===== Arranque guiado =====
+const TABIDS=['hoy','pros','sem','num','metas','yo'];
+function goTab(i){ go(TABIDS[i], document.querySelectorAll('.tabs button')[i]) }
+function renderArranque(){
+  const c=DB.cfg;
+  const calif=DB.pros.filter(p=>pScore(p)>0).length;
+  const pasos=[
+    ["Mis datos: preséntate — la app te hablará por tu nombre", !!(c.nombre||c.apodo), 5],
+    ["Mi propósito: mis fines, por quién peleo y mi arquetipo", !!(c.quien&&c.fin1&&c.arq), 5],
+    ["Mis cálculos y mis 3 metas (mínima · meta · ideal)", !!c.metasOk, 4],
+    ["Mi listado inicial: 10 prospectos ("+Math.min(DB.pros.length,10)+"/10)", DB.pros.length>=10, 1],
+    ["Calificar con estrellas a 5 ("+Math.min(calif,5)+"/5)", calif>=5, 1],
+    ["Pedir mi primera cita", DB.pros.some(p=>p.estado!=="NUEVO"), 1],
+  ];
+  const card=document.getElementById('arranque-card');
+  if(pasos.every(p=>p[1])){ card.style.display="none"; return }
+  card.style.display="block";
+  document.getElementById('arranquelist').innerHTML=pasos.map(([lab,ok,tab])=>
+    '<div class="rowline" style="cursor:pointer" onclick="goTab('+tab+')"><span class="k">'+(ok?"✅":"⬜")+' '+lab+'</span><span class="chev">›</span></div>').join('');
+}
+function closeAgenda(){ document.getElementById('agmodal').classList.remove('open'); renderAgenda() }
+function setBlock(i,k,v){ DB.cfg.blocks[i][k]=v; persist() }
+function gcalLink(b){
+  const d=new Date(); const [H,M]=b.h.split(':').map(Number);
+  const p=n=>String(n).padStart(2,'0');
+  const ymd=d.getFullYear()+p(d.getMonth()+1)+p(d.getDate());
+  const end=H*60+M+30;
+  const dates=ymd+"T"+p(H)+p(M)+"00/"+ymd+"T"+p(Math.floor(end/60))+p(end%60)+"00";
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("⏰ "+b.t+" · GRATITUD 360")+
+    "&dates="+dates+"&recur="+encodeURIComponent("RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR")+
+    "&details="+encodeURIComponent("Mi agenda de poder — GRATITUD 360. Las medidas predictivas no se negocian: este momento es la cita conmigo y con mis fines.");
+}
+function enableNotif(){
+  if(typeof Notification==="undefined"){ alert("Este navegador no permite notificaciones. Usa '➕ a mi calendario' en ⚙️ ajustar — es aún más confiable."); return }
+  Notification.requestPermission().then(p=>{
+    if(p==="granted"){ new Notification("GRATITUD 360",{body:"🔔 Listo. Te recordaré tus bloques mientras la app esté abierta. Para avisos con la app cerrada, agrega tus bloques a tu calendario (⚙️ ajustar)."}) }
+    renderAgenda();
+  });
+}
+let firedToday={};
+setInterval(()=>{
+  if(typeof Notification==="undefined"||Notification.permission!=="granted") return;
+  const ahora=hm();
+  const d30=new Date(Date.now()+30*60000), en30=String(d30.getHours()).padStart(2,'0')+":"+String(d30.getMinutes()).padStart(2,'0');
+  (DB.cfg.blocks||[]).forEach(b=>{
+    if(b.h===ahora&&!firedToday[hoy()+b.h]){
+      firedToday[hoy()+b.h]=1;
+      new Notification("⏰ GRATITUD 360 — es tu momento",{body:b.t+"\n"+frase()});
+    }
+  });
+  DB.tareas.filter(x=>x.fecha===hoy()).forEach(x=>{
+    if(x.h===ahora&&!firedToday["t"+x.id]){ firedToday["t"+x.id]=1;
+      new Notification("📝 GRATITUD 360 — pendiente",{body:x.t+"\nHecho a tiempo se disfruta doble."}); }
+  });
+  DB.pros.filter(p=>p.cita&&p.cita.fecha===hoy()&&p.estado!=="DESCARTADO").forEach(p=>{
+    const hc=p.cita.hora||"";
+    if(hc===en30&&!firedToday["c30"+p.id]){ firedToday["c30"+p.id]=1;
+      new Notification("🤝 Tu cita con "+p.nombre+" es en 30 min",{body:"Respira, repasa su perfil y llega antes. "+frase()}); }
+    if(hc===ahora&&!firedToday["c"+p.id]){ firedToday["c"+p.id]=1;
+      new Notification("🤝 GRATITUD 360 — tu cita con "+p.nombre,{body:"Atiende "+(p.cita.con||"Gerardo (mi guía)")+". Este momento vale oro."}); }
+  });
+  renderAgenda();
+},20000);
+// ===== Rendición de cuentas 4DX =====
+function renderRC(pros,citas,MQ){
+  const ws=weekStart(new Date());
+  const vW=DB.ventas.filter(v=>inWeek(v.date,ws)).length;
+  const chk=(re,me)=> re>=me? '<span class="green">✓ '+re+'/'+me+'</span>' : '<span class="amber">'+re+'/'+me+'</span>';
+  document.getElementById('rc-score').innerHTML=
+    '<div class="rowline"><span class="k">Prospectos</span><span class="v">'+chk(pros,MQ.prospSem)+'</span></div>'+
+    '<div class="rowline"><span class="k">Citas propuestas</span><span class="v">'+chk(citas,MQ.citasSem)+'</span></div>'+
+    '<div class="rowline"><span class="k">Ventas</span><span class="v">'+chk(vW,Math.round(MQ.vSemLab))+'</span></div>';
+  const wkPrev=weekKey(new Date(Date.now()-7*864e5));
+  const prev=DB.comp[wkPrev];
+  const el=document.getElementById('rc-prev');
+  if(prev&&prev.txt){
+    el.innerHTML='<div class="aviso" style="margin-top:10px">La semana pasada me comprometí a: <b>'+prev.txt+'</b><br>'+
+      (prev.done===true?'<span class="green">✓ Cumplido — así se construye la confianza</span>':
+       prev.done===false?'<span class="amber">Quedó pendiente — coméntalo en tu cadencia, sin culpa y sin excusa</span>':
+       '¿Lo cumplí? <button class="undo" onclick="prevDone(true)" style="color:var(--green)">SÍ ✓</button> · <button class="undo" onclick="prevDone(false)" style="color:var(--amber)">aún no</button>')+'</div>';
+  } else el.innerHTML='';
+  const cur=DB.comp[weekKey(new Date())];
+  const inp=document.getElementById('rc-txt');
+  if(document.activeElement!==inp) inp.value=(cur&&cur.txt)||"";
+}
+function saveCompromiso(){
+  const k=weekKey(new Date());
+  DB.comp[k]={...(DB.comp[k]||{}),txt:document.getElementById('rc-txt').value.trim()};
+  persist();
+}
+function prevDone(v){
+  const k=weekKey(new Date(Date.now()-7*864e5));
+  DB.comp[k]={...(DB.comp[k]||{}),done:v}; persist(); render();
+}
+function shareSemana(){
+  const ws=weekStart(new Date()), MQ=metasReq(), k=calc();
+  const pros=count('prospecto',ws), citas=count('citaP',ws), vW=DB.ventas.filter(v=>inWeek(v.date,ws)).length;
+  const comp=(DB.comp[weekKey(new Date())]||{}).txt||"(sin compromiso escrito)";
+  const txt="📊 MI SEMANA — GRATITUD 360\n"+(DB.cfg.nombre?("Soy "+DB.cfg.nombre+"\n"):"")+
+    "Prospectos: "+pros+"/"+MQ.prospSem+"\nCitas propuestas: "+citas+"/"+MQ.citasSem+"\nVentas: "+vW+"\n"+
+    "— Trimestre: "+k.nv+" ventas · "+fmt(k.prima)+" prima · factor ×"+k.f.toFixed(2)+" · estimado "+fmt(k.total)+"\n"+
+    "Meta ideal: "+fmt(MQ.m)+" ("+Math.round(MQ.m>0?k.total/MQ.m*100:0)+"%)\n"+
+    "Mi compromiso: "+comp;
+  openURL("https://wa.me/"+GUIA_WA+"?text="+encodeURIComponent(txt),"_blank");
+}
+function agendarCita(){
+  const L=DB.cfg.links||{};
+  if(L.agenda) openURL(L.agenda,"_blank");
+  else alert("📅 Tu guía aún no carga su link de agenda.\n\nMientras tanto, mándale WhatsApp para acordar tu cadencia semanal de 15 minutos.");
+}
+// ===== Familia, redes y hobbies =====
+const REDES_OPS=["Facebook","Instagram","LinkedIn","TikTok","X","YouTube"];
+// Formato correcto por red: usuario donde el usuario es lo natural; LINK donde la gente no conoce su usuario
+const REDES_META={
+ "Facebook":{ph:"Pega el LINK de tu perfil (recomendado) o tu usuario",base:"https://facebook.com/"},
+ "Instagram":{ph:"@tuusuario",base:"https://instagram.com/"},
+ "LinkedIn":{ph:"Pega el LINK de tu perfil (linkedin.com/in/…)",base:"https://linkedin.com/in/"},
+ "TikTok":{ph:"@tuusuario",base:"https://tiktok.com/@"},
+ "X":{ph:"@tuusuario",base:"https://x.com/"},
+ "YouTube":{ph:"@tucanal",base:"https://youtube.com/@"}
+};
+function redURL(r,v){
+  v=(v||"").trim(); if(!v) return "";
+  if(/^https?:\/\//i.test(v)) return v;                    // ya es un link
+  if(/\./.test(v)&&/\//.test(v)) return "https://"+v;      // link sin https
+  v=v.replace(/^@/,"").replace(/\s+/g,"");                 // usuario limpio
+  const m=REDES_META[r]; return m? m.base+v : v;
+}
+const HOB_OPS=["Deporte","Música","Lectura","Viajar","Cocina","Cine y series","Tiempo en familia","Naturaleza / campo","Videojuegos","Baile","Manualidades","Servir / voluntariado"];
+function addHijo(){ DB.cfg.hijos.push({n:"",e:""}); persist(); renderFamilia(); }
+function setHijo(i,k,v){ DB.cfg.hijos[i][k]=v; persist(); }
+function delHijo(i){ DB.cfg.hijos.splice(i,1); persist(); renderFamilia(); }
+function togRed(r){ const L=DB.cfg.redesL; if(r in L) delete L[r]; else L[r]=""; persist(); renderFamilia(); }
+function setRed(r,v){ DB.cfg.redesL[r]=v; persist(); }
+function togHob(h){ const L=DB.cfg.hobbiesL; const i=L.indexOf(h); if(i>=0)L.splice(i,1); else L.push(h); persist(); renderFamilia(); }
+function renderFamilia(){
+  const c=DB.cfg;
+  document.getElementById('hijoslist').innerHTML=c.hijos.map((h,i)=>
+    '<div style="display:flex;gap:8px;margin-top:8px"><input type="text" value="'+(h.n||"").replace(/"/g,'&quot;')+'" placeholder="Nombre" style="flex:2;margin-top:0" onchange="setHijo('+i+',\'n\',this.value)">'+
+    '<input type="number" value="'+(h.e||"")+'" placeholder="Edad" style="flex:1;margin-top:0" onchange="setHijo('+i+',\'e\',this.value)">'+
+    '<button class="undo" onclick="delHijo('+i+')">🗑</button></div>').join('') || '<div class="small mut">Sin hijos registrados.</div>';
+  document.getElementById('chips-redes').innerHTML=REDES_OPS.map(r=>
+    '<span class="chip'+(r in c.redesL?" on":"")+'" onclick="togRed(\''+r+'\')">'+r+'</span>').join('');
+  document.getElementById('redesinputs').innerHTML=Object.keys(c.redesL).map(r=>{
+    const meta=REDES_META[r]||{ph:"@usuario"}, val=c.redesL[r]||"";
+    return '<label>'+r+'</label><input type="text" value="'+val.replace(/"/g,'&quot;')+'" placeholder="'+meta.ph+'" onchange="setRed(\''+r+'\',this.value)">'+
+      (val?'<div class="small" style="margin-top:3px"><a href="'+redURL(r,val)+'" target="_blank" rel="noopener" style="color:var(--gold)">✓ verificar que abre mi perfil ↗</a></div>':'');
+  }).join('');
+  document.getElementById('chips-hob').innerHTML=HOB_OPS.map(h=>
+    '<span class="chip'+(c.hobbiesL.includes(h)?" on":"")+'" onclick="togHob(\''+h+'\')">'+h+'</span>').join('');
+  document.getElementById('deporteinput').innerHTML=c.hobbiesL.includes("Deporte")?
+    '<label>¿Cuál deporte?</label><input type="text" value="'+(c.deporte||"").replace(/"/g,'&quot;')+'" placeholder="Ej. fútbol, correr, pádel…" onchange="DB.cfg.deporte=this.value;persist()">':"";
+}
+// ===== Sincronización discreta con la base de datos (Google Sheets vía Apps Script) =====
+// ===== Registro / clave de acceso (la app es por invitación) =====
+function lockScreen(){
+  const ov=document.createElement('div'); ov.className="msgover"; ov.id="lockov"; ov.style.zIndex=250; // debajo de los mensajes (300) para poder leerlos
+  ov.innerHTML='<div class="msgbox"><div class="mtxt" style="text-align:center"><div style="font-size:36px">🔐</div><b>GRATITUD 360 · Segurzen</b><br><span style="color:var(--mut);font-size:12px">Esta app es por invitación. Escribe tu clave de acceso — te la entrega tu guía.</span></div>'+
+  '<input type="text" id="clavein" placeholder="CLAVE DE ACCESO" style="text-align:center;letter-spacing:3px;text-transform:uppercase" onkeydown="if(event.key===\'Enter\')tryClave()">'+
+  '<div class="mbtns"><button class="primary" onclick="tryClave()">Entrar</button></div>'+
+  '<div style="color:var(--mut);font-size:11px;text-align:center;margin-top:10px">¿No tienes clave? Escríbele a Gerardo · 449 804 1889</div></div>';
+  document.body.appendChild(ov);
+  setTimeout(()=>{const i=document.getElementById('clavein'); if(i)i.focus()},200);
+}
+function tryClave(){
+  const v=(document.getElementById('clavein').value||"").trim().toUpperCase();
+  if(v===CLAVE_ACCESO){ DB.cfg.clave=CLAVE_ACCESO; persist(); const o=document.getElementById('lockov'); if(o)o.remove();
+    msgBox('¡Bienvenido a GRATITUD 360! 🙌<br><br>¿Es tu primera vez, o ya tienes tu cuenta en otro dispositivo?',
+      [["🆕 Soy nuevo — empezar",()=>{ showMsg("Primer paso: preséntate en la pestaña YO — nombre, teléfono y tu contraseña (PIN). Con eso tu avance queda respaldado y te sigue a cualquier dispositivo."); goTab(5); }],
+       ["🔄 Ya tengo cuenta — traer mis datos",()=>restoreFlow()]]); }
+  else showMsg("Clave incorrecta. Revísala con calma o pídesela a tu guía (Gerardo · 449 804 1889).");
+}
+function datosOk(){ return !!((DB.cfg.nombre||"").trim() && (DB.cfg.tel||"").trim()) }
+function pideDatos(){ msgBox('🔒 <b>Antes de empezar, preséntate</b> — son 30 segundos.<br><br>Tu nombre y tu teléfono son la llave de tu avance: sin ellos, lo que registres no le cuenta a nadie. Después de eso, todo se abre.',[["✍️ Ir a mis datos",()=>{ goTab(5); setTimeout(()=>{const el=document.getElementById('in-nombre'); if(el){el.focus(); el.scrollIntoView({block:'center'})}},250) }],["Ahora no",null]]) }
+function dbURL(){ return (DB.cfg.links&&DB.cfg.links.db)||SHEET_URL||"" }
+function syncDB(tipo,datos){
+  if(!datosOk()) return; // sin nombre y teléfono no se sincroniza: nada anónimo en la base
+  const u=dbURL(); if(!u||!/^https:\/\//.test(u)) return;
+  try{ fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},
+    body:JSON.stringify({tipo,ts:new Date().toISOString(),...datos})}).catch(()=>{}) }catch(e){}
+}
+function perfilData(){
+  const c=DB.cfg;
+  return {nombre:c.nombre,apodo:c.apodo,tel:c.tel,correo:c.mail,nacimiento:c.nac,civil:c.civil,
+    conyuge:c.conyN,conyuge_nac:c.conyNac,hijos:c.hijos.filter(h=>h.n).map(h=>h.n+" ("+h.e+")").join(", "),
+    fb:redURL("Facebook",c.redesL["Facebook"]||""), ig:redURL("Instagram",c.redesL["Instagram"]||""),
+    li:redURL("LinkedIn",c.redesL["LinkedIn"]||""), tk:redURL("TikTok",c.redesL["TikTok"]||""),
+    x:redURL("X",c.redesL["X"]||""), yt:redURL("YouTube",c.redesL["YouTube"]||""),
+    hobbies:c.hobbiesL.join(", "),deporte:c.deporte,sueno:c.sueno,algomas:c.algomas,
+    quien:c.quien,fin1:c.fin1,fin2:c.fin2,fin3:c.fin3,arquetipo:c.arq,banderas:c.enf.join(" y "),
+    n1:c.n1,n2:c.n2,n3:c.n3,prima_prom:c.prima,bateo:c.bateo};
+}
+function semanaData(){
+  const ws=weekStart(new Date()), k=calc(), MQ=metasReq();
+  return {nombre:DB.cfg.nombre,tel:DB.cfg.tel,semana:weekKey(new Date()),
+    prospectos:count('prospecto',ws),citas_prop:count('citaP',ws),citas_real:count('citaR',ws),
+    ventas_sem:DB.ventas.filter(v=>inWeek(v.date,ws)).length,
+    ventas_trim:k.nv,prima_trim:k.prima,factor:k.f,ingreso_est:Math.round(k.total),
+    pct_meta:MQ.m>0?Math.round(k.total/MQ.m*100):0,
+    compromiso:(DB.comp[weekKey(new Date())]||{}).txt||""};
+}
+function pipelineData(){
+  const cnt=k=>DB.pros.filter(p=>etapaKey(p)===k).length;
+  return {nombre:DB.cfg.nombre,tel:DB.cfg.tel,en_lista:DB.pros.filter(p=>p.estado!=="DESCARTADO").length,
+    nuevos:cnt("nuevos"),calificados:cnt("calif"),citas:cnt("citas"),propuesta:cnt("prop"),
+    cierre:cnt("cierre"),seguimiento:cnt("seg"),descartados:cnt("desc")};
+}
+function prospectosData(){
+  return {nombre:DB.cfg.nombre,tel:DB.cfg.tel,
+    lista:DB.pros.map(p=>({n:p.nombre,tel:(p.perfil||{}).tel||"",etapa:etapaCRM(p),est:pScore(p),nota:p.nota||"",
+      next:p.nextTxt||"",nextF:p.nextFecha||"",citaF:(p.cita||{}).fecha||"",citaH:(p.cita||{}).hora||"",con:(p.cita||{}).con||"",
+      alta:p.date||"",ult:(p.seg&&p.seg.length)?p.seg[p.seg.length-1].txt:""}))};
+}
+let syncT=null;
+function syncTodo(){
+  syncDB("perfil",perfilData()); syncDB("semana",semanaData()); syncDB("pipeline",pipelineData()); syncDB("prospectos",prospectosData());
+  if(DB.cfg.pin){ syncDB("backup",{tel:DB.cfg.tel,pin:DB.cfg.pin,data:JSON.stringify(DB)}); DB.lastBackup=Date.now(); } // respaldo completo para multi-dispositivo
+  DB.lastSync=Date.now(); persist();
+}
+// ===== Estado del respaldo (que el promotor VEA que está protegido) =====
+function renderBkStatus(){
+  const el=document.getElementById('bkstatus'); if(!el) return;
+  if(!datosOk()){ el.innerHTML='<div class="psug">🔒 Pon tu nombre y teléfono arriba — con eso empieza tu respaldo.</div>'; return }
+  if(!DB.cfg.pin){ el.innerHTML='<div class="psug" style="border-color:var(--amber)">⚠️ <b>Tu avance AÚN NO está respaldado.</b> Crea tu contraseña (PIN) aquí arriba — son 10 segundos y desde ese momento todo lo que hagas se guarda solo en la nube.</div>'; return }
+  const t=DB.lastBackup? new Date(DB.lastBackup) : null;
+  el.innerHTML='<div class="psug" style="border-color:var(--green)">☁️ <b>Respaldo automático ACTIVO.</b> Todo lo que capturas se guarda solo en la nube a los segundos'+(t?(' · última copia enviada hoy a las <b>'+String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0')+'</b>'):'')+'. Con tu teléfono + contraseña lo recuperas en cualquier dispositivo.</div>';
+}
+function checkBackup(){
+  if(!datosOk()||!DB.cfg.pin){ renderBkStatus(); showMsg(!datosOk()?"Primero pon tu nombre y teléfono.":"Crea tu contraseña (PIN) — sin ella no hay respaldo en la nube."); return }
+  const u=dbURL(); if(!u){ showMsg("No hay conexión con la base configurada."); return }
+  showMsg("☁️ Consultando la nube… dame unos segundos.");
+  fetch(u+"?accion=restore&tel="+encodeURIComponent(DB.cfg.tel)+"&pin="+encodeURIComponent(DB.cfg.pin))
+    .then(r=>r.json())
+    .then(j=>{
+      document.querySelectorAll('.msgover').forEach(m=>m.remove());
+      if(j&&j.ok&&j.data){
+        let fecha="";
+        try{ const P=JSON.parse(j.data); if(P.lastBackup){ const d=new Date(P.lastBackup); fecha="\n\nÚltima copia guardada: "+d.toLocaleDateString()+" "+String(d.getHours()).padStart(2,'0')+":"+String(d.getMinutes()).padStart(2,'0'); } }catch(e){}
+        showMsg("✅ CONFIRMADO: tu cuenta completa está respaldada en la nube."+fecha+"\n\nSi este teléfono se pierde o se borra, recuperas TODO con tu teléfono y tu contraseña.");
+      }
+      else showMsg("⚠️ Aún no encuentro tu copia en la nube.\n\nHaz cualquier movimiento en la app (guarda un dato, un prospecto) y en unos segundos se sube sola. Luego verifica de nuevo.\n\nSi sigue sin aparecer, revisa tu internet o avísale a tu guía.");
+    })
+    .catch(()=>{ document.querySelectorAll('.msgover').forEach(m=>m.remove()); showMsg("No pude conectar con la nube. Revisa tu internet e intenta de nuevo.") });
+}
+// ===== Recuperar cuenta en otro dispositivo (usuario = teléfono, contraseña = PIN) =====
+function restoreFlow(){
+  msgBox('<b>🔄 Traer mis datos</b><br><span style="color:var(--mut);font-size:12px">Escribe tu teléfono y tu contraseña (PIN) — los mismos que pusiste en tu otro dispositivo.</span>'+
+    '<label>Mi teléfono (usuario)</label><input type="tel" id="re-tel" placeholder="10 dígitos">'+
+    '<label>Mi contraseña (PIN)</label><input type="tel" id="re-pin" placeholder="4-6 dígitos" maxlength="6">',
+    [["🔄 Recuperar",()=>doRestore()],["Cancelar",null]]);
+}
+function doRestore(){
+  const tel=(document.getElementById('re-tel')||{}).value||"", pin=(document.getElementById('re-pin')||{}).value||"";
+  if(!tel.trim()||!pin.trim()){ showMsg("Escribe tu teléfono y tu PIN."); return }
+  const u=dbURL(); if(!u){ showMsg("No hay conexión con la base configurada."); return }
+  showMsg("Buscando tu cuenta… dame unos segundos y este mensaje se actualizará.");
+  fetch(u+"?accion=restore&tel="+encodeURIComponent(tel.trim())+"&pin="+encodeURIComponent(pin.trim()))
+    .then(r=>r.json())
+    .then(j=>{
+      if(j&&j.ok&&j.data){
+        try{ const P=JSON.parse(j.data); sset('g360',JSON.stringify(P)); location.reload(); }
+        catch(e){ showMsg("Encontré tu cuenta pero no pude leer el respaldo. Avísale a tu guía.") }
+      } else showMsg("No encontré una cuenta con ese teléfono y contraseña.\n\nRevisa los datos, o si es tu primera vez, empieza como nuevo — tus datos se respaldan solos en cuanto pongas tu PIN.");
+    })
+    .catch(()=>showMsg("No pude conectar con la base. Revisa tu internet e intenta de nuevo."));
+}
+function syncSuave(){ clearTimeout(syncT); syncT=setTimeout(()=>{ syncDB("perfil",perfilData());
+  if(DB.cfg.pin){ syncDB("backup",{tel:DB.cfg.tel,pin:DB.cfg.pin,data:JSON.stringify(DB)}); DB.lastBackup=Date.now(); } // el respaldo viaja junto con el perfil
+  DB.lastSync=Date.now(); persist(); renderBkStatus(); },4000); }
+// ===== Respaldo local =====
+function sharePerfil(){
+  const c=DB.cfg;
+  const hijos=c.hijos.filter(h=>h.n).map(h=>h.n+" ("+h.e+")").join(", ");
+  const redes=Object.entries(c.redesL).map(([r,u])=>r+": "+(u||"—")).join(" · ");
+  const txt="👤 MI PERFIL — GRATITUD 360\n"+
+    "Nombre: "+(c.nombre||"—")+" ("+(c.apodo||"—")+")\nTel: "+(c.tel||"—")+" · Correo: "+(c.mail||"—")+"\n"+
+    "Nacimiento: "+(c.nac||"—")+" · "+(c.civil||"—")+(c.conyN?(" · Pareja: "+c.conyN+(c.conyNac?" ("+c.conyNac+")":"")):"")+"\n"+
+    (hijos?("Hijos: "+hijos+"\n"):"")+(redes?("Redes: "+redes+"\n"):"")+
+    (c.hobbiesL.length?("Hobbies: "+c.hobbiesL.join(", ")+(c.deporte?" ("+c.deporte+")":"")+"\n"):"")+
+    "Peleo por: "+(c.quien||"—")+"\nFines: "+[c.fin1,c.fin2,c.fin3].filter(Boolean).join(" · ")+"\n"+
+    "Arquetipo: "+(c.arq||"—")+" · Banderas: "+c.enf.join(" y ")+"\n"+
+    "Metas/mes: "+fmt(c.n1)+" · "+fmt(c.n2)+" · "+fmt(c.n3)+"\n"+
+    (c.sueno?("✨ Mi sueño: "+c.sueno+"\n"):"")+(c.algomas?("Algo más: "+c.algomas):"");
+  openURL("https://wa.me/"+GUIA_WA+"?text="+encodeURIComponent(txt),"_blank");
+}
+function backupDatos(){
+  const c=DB.cfg, k=calc(), MQ=metasReq();
+  const esc2=t=>String(t||"—").replace(/</g,"&lt;");
+  const hijos=c.hijos.filter(h=>h.n).map(h=>h.n+" ("+h.e+" años)").join(", ");
+  const redes=Object.entries(c.redesL).map(([r,u])=>r+": "+(redURL(r,u)||"—")).join(" · ");
+  const prosRows=DB.pros.filter(p=>p.estado!=="DESCARTADO").sort((a,b)=>pScore(b)-pScore(a)).map(p=>
+    "<tr><td>"+esc2(p.nombre)+"</td><td>"+etapaCRM(p)+"</td><td>"+"★".repeat(pScore(p))+"</td><td>"+esc2((p.perfil||{}).tel)+"</td><td>"+esc2(p.nextTxt)+(p.nextFecha?" ("+p.nextFecha+")":"")+"</td></tr>").join("");
+  const ventasRows=DB.ventas.map(v=>"<tr><td>"+v.date+"</td><td>"+v.rubro+"</td><td>"+fmt(v.prima)+"</td><td>"+esc2(v.nombre)+"</td></tr>").join("");
+  const html='<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Mi expediente GRATITUD 360</title><style>'+
+    'body{font-family:Arial,sans-serif;max-width:800px;margin:24px auto;padding:0 16px;color:#1B2A4A}'+
+    'h1{border-bottom:3px solid #C9A84C;padding-bottom:6px}h2{background:#1B2A4A;color:#fff;padding:6px 10px;border-radius:6px;font-size:15px}'+
+    'table{width:100%;border-collapse:collapse;font-size:13px}td,th{border:1px solid #ccd;padding:6px;text-align:left}th{background:#EFF3FA}'+
+    '.kv td:first-child{font-weight:bold;width:220px;background:#F7F9FC}.mut{color:#777;font-size:12px}</style></head><body>'+
+    '<h1>GRATITUD 360 · Mi expediente</h1><p class="mut">'+esc2(c.nombre)+' · generado el '+hoy()+' · Segurzen</p>'+
+    '<h2>Mis datos</h2><table class="kv">'+
+    [["Nombre",c.nombre],["Me llaman",c.apodo],["Teléfono",c.tel],["Correo",c.mail],["Nacimiento",c.nac],["Estado civil",c.civil],["Pareja",c.conyN+(c.conyNac?" ("+c.conyNac+")":"")],["Hijos",hijos],["Redes",redes],["Hobbies",c.hobbiesL.join(", ")+(c.deporte?" · "+c.deporte:"")]].map(([a,b])=>"<tr><td>"+a+"</td><td>"+esc2(b)+"</td></tr>").join("")+'</table>'+
+    '<h2>Mi propósito</h2><table class="kv">'+
+    [["Peleo por",c.quien],["Fin #1",c.fin1],["Fin #2",c.fin2],["Fin #3",c.fin3],["Arquetipo",c.arq],["Mis banderas",c.enf.join(" y ")],["✨ Mi sueño",c.sueno]].map(([a,b])=>"<tr><td>"+a+"</td><td>"+esc2(b)+"</td></tr>").join("")+'</table>'+
+    '<h2>Mis metas de ingreso</h2><table class="kv">'+
+    [["Nivel 1 · mínimo/mes",fmt(c.n1)],["Nivel 2 · meta/mes",fmt(c.n2)],["Nivel 3 · ideal/mes",fmt(c.n3)],["Monto de venta promedio",fmt(c.prima)],["Bateo esperado",c.bateo+" : 1"]].map(([a,b])=>"<tr><td>"+a+"</td><td>"+b+"</td></tr>").join("")+'</table>'+
+    '<h2>Mi trimestre (al día de hoy)</h2><table class="kv">'+
+    [["Ventas",k.nv],["Monto vendido",fmt(k.prima)],["Mi factor","×"+k.f.toFixed(2)],["Ingreso estimado",fmt(k.total)],["% de mi meta ideal",(MQ.m>0?Math.round(k.total/MQ.m*100):0)+"%"]].map(([a,b])=>"<tr><td>"+a+"</td><td>"+b+"</td></tr>").join("")+'</table>'+
+    '<h2>Mis prospectos ('+DB.pros.filter(p=>p.estado!=="DESCARTADO").length+')</h2><table><tr><th>Nombre</th><th>Etapa</th><th>★</th><th>Tel</th><th>Siguiente paso</th></tr>'+(prosRows||"<tr><td colspan=5>—</td></tr>")+'</table>'+
+    '<h2>Mis ventas</h2><table><tr><th>Fecha</th><th>Ramo</th><th>Prima</th><th>Cliente</th></tr>'+(ventasRows||"<tr><td colspan=4>—</td></tr>")+'</table>'+
+    '<p class="mut">Este archivo también guarda tu respaldo técnico completo (no lo edites). Tu cuenta además se respalda sola en la nube con tu teléfono + PIN.</p>'+
+    '<script type="application/json" id="g360-respaldo">'+JSON.stringify(DB).replace(/</g,"\\u003c")+'<\/script></body></html>';
+  descargar(html,"GRATITUD360_expediente_"+((c.nombre||"promotor").split(" ")[0])+"_"+hoy()+".html","text/html");
+  const textoPlano="MI EXPEDIENTE GRATITUD 360 · "+(c.nombre||"")+" · "+hoy()+"\nPeleo por: "+(c.quien||"—")+"\nFines: "+[c.fin1,c.fin2,c.fin3].filter(Boolean).join(" · ")+"\nMetas/mes: "+fmt(c.n1)+" / "+fmt(c.n2)+" / "+fmt(c.n3)+"\nTrimestre: "+k.nv+" ventas · "+fmt(k.prima)+" vendido · factor ×"+k.f.toFixed(2)+" · estimado "+fmt(k.total)+"\nProspectos activos: "+DB.pros.filter(p=>p.estado!=="DESCARTADO").length;
+  msgBox('💾 Se descargó <b>tu expediente</b> — un archivo que se abre con doble toque en cualquier navegador o computadora: tus datos, tu propósito, tus metas, tu trimestre, tus prospectos y tus ventas, todo legible y listo para imprimir.<br><br><span style="color:var(--mut);font-size:12px">¿No apareció la descarga? Toca COPIAR para llevarte el resumen en texto.</span>',
+   [["📋 Copiar resumen",()=>copiar(textoPlano,"📋 Resumen copiado. Pégalo en una nota o mándalo por WhatsApp.")],["Cerrar",null]]);
+}
+// ===== Importar prospectos desde archivo (Excel / CSV / vCard) =====
+function plantillaCSV(){
+  // sep=; hace que Excel abra el archivo en columnas; el copiado usa TABs para que al pegar en Excel caiga en columnas
+  const csvFile="sep=;\nNOMBRE;TELEFONO;CORREO;NOTA\nLaura Ortiz;4491234567;laura@correo.com;vecina - cafeteria nueva\nPedro Ruiz;4497654321;;del gym\n";
+  const csvPega="NOMBRE\tTELEFONO\tCORREO\tNOTA\nLaura Ortiz\t4491234567\tlaura@correo.com\tvecina - cafeteria nueva\nPedro Ruiz\t4497654321\t\tdel gym";
+  descargar("﻿"+csvFile,"plantilla_prospectos_gratitud360.csv","text/csv");
+  msgBox('⬇️ Se intentó descargar la plantilla <b>plantilla_prospectos_gratitud360.csv</b> — al abrirla en Excel ya se ve en columnas.<br><br>Llena tus contactos (solo NOMBRE es obligatorio), guarda (.xlsx o .csv) y súbela con 📄 Importar archivo.<br><br><span style="color:var(--mut);font-size:12px">¿No apareció la descarga? Toca COPIAR y pega en Excel: caerá en columnas separadas.</span>',
+   [["📋 Copiar plantilla",()=>copiar(csvPega,"📋 Copiada. Pégala en Excel: cada dato caerá en su columna (NOMBRE, TELEFONO, CORREO, NOTA).")],["Cerrar",null]]);
+}
+// ===== Pegar lista directo (sin Excel) =====
+function openPegar(){
+  msgBox('<b>📋 Pega tu lista aquí</b> — vale todo:<br><span style="color:var(--mut);font-size:12px">· Solo nombres (uno por renglón)<br>· O renglones con: nombre, teléfono, correo, nota (separados por coma, punto y coma o tabulador)<br>· También lo copiado de la plantilla de Excel</span><br><br><textarea id="pegatxt" rows="8" style="margin-top:0" placeholder="Laura Ortiz, 4491234567, laura@correo.com, vecina&#10;Pedro Ruiz&#10;Marta Vega, 4493334444"></textarea>',
+   [["➕ Importar lista",()=>{
+      const t=document.getElementById('pegatxt')? document.getElementById('pegatxt').value : window.__pega||"";
+      importarPegado(t);
+    }],["Cerrar",null]]);
+  setTimeout(()=>{ const ta=document.getElementById('pegatxt'); if(ta) ta.oninput=()=>{window.__pega=ta.value}; },50);
+}
+function importarPegado(t){
+  if(!datosOk()){ pideDatos(); return }
+  if(!t||!t.trim()){ showMsg("Pega al menos un nombre."); return }
+  const lines=t.split(/\r?\n/).map(l=>l.trim()).filter(l=>l&&!/^sep=/i.test(l));
+  let hdr=null, start=0;
+  const sepOf=l=> l.includes("\t")?"\t": l.includes(";")?";": ",";
+  if(/nombre/i.test(lines[0])&&/tel|correo|nota|mail/i.test(lines[0]+" ")){ hdr=lines[0].split(sepOf(lines[0])).map(h=>h.trim()); start=1 }
+  else if(/^nombre$/i.test(lines[0].split(sepOf(lines[0]))[0].trim())){ hdr=lines[0].split(sepOf(lines[0])).map(h=>h.trim()); start=1 }
+  const regs=lines.slice(start).map(l=>{
+    const sep=sepOf(l); const vals=l.split(sep).map(v=>v.replace(/"/g,"").trim());
+    if(hdr){ const o={}; hdr.forEach((h,i)=>o[h]=vals[i]||""); return mapCampos(o) }
+    if(vals.length===1) return {nombre:vals[0]};
+    return {nombre:vals[0]||"", tel:vals[1]||"", email:vals[2]||"", nota:vals.slice(3).join(" ")||""};
+  });
+  altaImportados(regs,"pegado de mi lista");
+}
+function altaImportados(regs,origen){
+  let n=0;
+  regs.forEach(r=>{
+    if(!r.nombre) return;
+    if(DB.pros.some(p=>p.nombre.toLowerCase()===r.nombre.toLowerCase())) return;
+    DB.pros.push({id:Date.now()+Math.random(),nombre:r.nombre,nota:r.nota||origen,stars:[0,0,0,0,0],estado:"NUEVO",date:hoy(),
+      perfil:{tel:r.tel||"",email:r.email||""},seg:[]});
+    DB.log.push({date:hoy(),tipo:'prospecto'}); n++;
+  });
+  persist(); render();
+  alert("✅ "+n+" prospecto(s) importado(s)"+(regs.length-n>0?" ("+(regs.length-n)+" omitidos: repetidos o sin nombre)":"")+".\n\nAhora lo importante: califícalos con estrellas y decide a quién citar primero.");
+}
+function mapCampos(obj){
+  const out={};
+  Object.entries(obj).forEach(([k,v])=>{
+    const key=String(k).toLowerCase().trim(); v=String(v||"").trim(); if(!v) return;
+    if(/nombre|name/.test(key)) out.nombre=v;
+    else if(/tel|cel|movil|móvil|phone/.test(key)) out.tel=v;
+    else if(/correo|mail/.test(key)) out.email=v;
+    else if(/nota|origen|donde|conozco|comentario/.test(key)) out.nota=v;
+  });
+  return out;
+}
+function importArchivo(inp){
+  const f=inp.files[0]; if(!f) return; inp.value="";
+  const ext=f.name.split('.').pop().toLowerCase();
+  if(ext==="vcf"){
+    f.text().then(t=>{
+      const regs=t.split(/BEGIN:VCARD/i).slice(1).map(b=>{
+        const fn=(b.match(/FN[^:]*:(.+)/i)||[])[1], tel=(b.match(/TEL[^:]*:(.+)/i)||[])[1], em=(b.match(/EMAIL[^:]*:(.+)/i)||[])[1];
+        return {nombre:(fn||"").trim(), tel:(tel||"").trim(), email:(em||"").trim()};
+      });
+      altaImportados(regs,"importado (vCard)");
+    });
+  } else if(ext==="csv"||ext==="txt"){
+    f.text().then(t=>importarPegado(t.replace(/^﻿/,"")));
+  } else if(ext==="xlsx"||ext==="xls"){
+    const go2=()=>{ f.arrayBuffer().then(buf=>{
+      const wb=XLSX.read(buf,{type:"array"});
+      let rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:""});
+      // caso "todo en una sola columna" (pegaron la plantilla sin separar): re-partimos
+      if(rows.length && Object.keys(rows[0]).length===1){
+        const k0=Object.keys(rows[0])[0];
+        if(/[,;\t]/.test(k0)){
+          const texto=[k0].concat(rows.map(r=>String(r[k0]))).join("\n");
+          importarPegado(texto); return;
+        }
+      }
+      altaImportados(rows.map(mapCampos),"importado (Excel)");
+    }); };
+    if(typeof XLSX!=="undefined") go2();
+    else{
+      const s=document.createElement('script');
+      s.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+      s.onload=go2;
+      s.onerror=()=>alert("📄 Para leer .xlsx necesito internet un momento (o guarda tu archivo como CSV en Excel: Archivo → Guardar como → CSV, y súbelo igual).");
+      document.head.appendChild(s);
+    }
+  } else alert("Formato no reconocido. Usa .xlsx, .csv o .vcf");
+}
+// ===== Materiales =====
+let linkEdit=false;
+function toggleLinkEdit(){ linkEdit=!linkEdit; renderMats() }
+function renderMats(){
+  const L=DB.cfg.links||{};
+  document.getElementById('matlist').innerHTML=MATERIALES.map(([id,lab])=>{
+    if(id==="db"&&!linkEdit) return ""; // discreto: solo visible al editar (guía)
+    if(linkEdit) return '<div class="matitem"><span style="flex:1">'+lab+'</span></div><input type="url" placeholder="https:// pega el link aquí" value="'+(L[id]||"")+'" onchange="setLink(\''+id+'\',this.value)">';
+    return '<div class="matitem"><span>'+lab+'</span>'+(L[id]?'<a href="'+L[id]+'" target="_blank" rel="noopener">ABRIR →</a>':'<span class="off">pídeselo a tu guía</span>')+'</div>';
+  }).join('');
+}
+function setLink(id,v){ if(!DB.cfg.links)DB.cfg.links={}; DB.cfg.links[id]=v.trim(); persist() }
+function setArq(a){ DB.cfg.arq=(DB.cfg.arq===a?"":a); persist(); initChips(); render() }
+function togEnf(e){
+  const i=DB.cfg.enf.indexOf(e);
+  if(i>=0) DB.cfg.enf.splice(i,1);
+  else{ if(DB.cfg.enf.length>=2) DB.cfg.enf.shift(); DB.cfg.enf.push(e) }
+  persist(); initChips(); render();
+}
+// init
+(function(){
+  const c=DB.cfg;
+  [["in-n1",fmt(c.n1)],["in-n2",fmt(c.n2)],["in-n3",fmt(c.n3)],["in-prima",fmt(c.prima)],["in-bateo",c.bateo||10],["in-ubic",c.ubic],["in-quien",c.quien],["in-fin1",c.fin1],["in-fin2",c.fin2],["in-fin3",c.fin3],
+   ["in-nombre",c.nombre],["in-apodo",c.apodo],["in-tel",c.tel],["in-pin",c.pin],["in-mail",c.mail],["in-nac",c.nac],["in-civil",c.civil],["in-conyn",c.conyN],["in-conynac",c.conyNac],["in-sueno",c.sueno],["in-algomas",c.algomas]].forEach(([id,v])=>{ document.getElementById(id).value=v||"" });
+  renderFamilia(); renderBkStatus();
+  const dias=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+  const meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  document.getElementById('fecha').textContent=dias[now.getDay()]+" "+now.getDate()+" de "+meses[now.getMonth()]+" · trimestre "+["ENE-MAR","ABR-JUN","JUL-SEP","OCT-DIC"][Math.floor(now.getMonth()/3)];
+  initChips(); renderMats(); renderAgenda(); render();
+  // sincronización silenciosa al abrir (máx. 1 vez cada 12 h)
+  if(dbURL() && (!DB.lastSync || Date.now()-DB.lastSync>12*3600*1000)) setTimeout(syncTodo,3000);
+  // registro por invitación
+  if(DB.cfg.clave!==CLAVE_ACCESO) lockScreen();
+})();
+</script>
+</body>
+</html>
